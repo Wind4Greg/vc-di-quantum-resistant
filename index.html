@@ -472,7 +472,7 @@ Examples of all the `publicKeyMultibase` encodings defined in this specification
 can be found in appendix [[[#TestVectors]]].
           </p>
           <p class="ednote">
-Note*: The codes given in [[[#MultiKeyTable]]] for FALCON-512  and SQIsign-I are 
+Note*: The codes given in [[[#MultiKeyTable]]] for FALCON-512 and SQIsign-I are 
 preliminary and not currently registered with 
 <a href="https://github.com/multiformats/multicodec/blob/master/table.csv">
 multicodecs</a>. When these signature schemes are formalized by NIST or other 
@@ -1482,7 +1482,7 @@ Return a [=verification result=] with [=struct/items=]:
 
       <section id="Falcon_Cryptosuites">
         <h3>FALCON Cryptosuites</h3>
-        <p  class="ednote">
+        <p class="ednote">
 The [[FALCON]] signature algorithm is 
 undergoing standardization by NIST. The information presented here is based on
 the 
@@ -1704,7 +1704,7 @@ Return a [=verification result=] with [=struct/items=]:
 
       <section id="SQISign_Cryptosuites">
         <h3>SQIsign Cryptosuites</h3>
-        <p  class="ednote">
+        <p class="ednote">
 The <a href="https://sqisign.org/">SQIsign</a> signature algorithm has been 
 submitted to NIST. SQIsign aims for very compact key and signature sizes. 
 The information presented here is based on 
@@ -1909,6 +1909,65 @@ Return a [=verification result=] with [=struct/items=]:
               </dl>
             </li>
           </ol>
+
+        </section>
+      </section>
+      <section id="SelectiveDisclosure">
+        <h3>Selective Disclosure Cryptosuites for Quantum Safe Signatures</h3>
+        <p class="informative">
+This section provides algorithms for a relatively efficient approach to enabling
+<em>selective disclosure</em> of a verifiable credential protected by a quantum
+safe signature algorithm. This approach utilizes a single quantum safe signature
+while sharing additional information concerning the cryptographic hashes of the
+processed "claims". This contrasts with the approach taken in [[VC-DI-ECDSA]] 
+selective disclosure where a short signature is given for each processed  
+"claim" and no additional hashes are shared. This also contrasts with the 
+approach in [[VC-DI-BBS]] where the underlying signature scheme supports 
+multiple "claims" and only a single short signature is shared.
+        </p>
+        <p class="informative">
+In all the approaches to selective disclosure mentioned above the same core set
+of selective disclosure processing functions contained in [[VC-DI-ECDSA]] which
+enable flexibility and efficiency in implementations. The approach taken here is
+roughly more efficient when a signature is longer that twice the size of the
+corresponding hash for a given security level, e.g., 64 bytes for security 
+category 1 or 2.  From [[[#CryptosuiteTable]]] we can see that this condition is
+true for all signature algorithms currently considered in this specification.
+        </p>
+        <p class="ednote">
+The general selective disclosure functions in [[VC-DI-ECDSA]] are planned to be
+moved to an updated version of  [[VC-DATA-INTEGRITY]].
+        </p>
+
+        <section>
+          <h4>Create Selective Disclosure Base Proof</h4>
+        </section>
+
+        <section>
+          <h4>Base Proof Transformation Selective Disclosure</h4>
+        </section>
+
+        <section>
+          <h4>Base Proof Hashing Selective Disclosure</h4>
+        </section>
+
+        <section>
+          <h4>Base Proof Configuration Selective Disclosure</h4>
+        </section>
+
+        <section>
+          <h4>Base Proof Serialization Selective Disclosure</h4>
+        </section>
+
+        <section>
+          <h4>Add Derived Proof Selective Disclosure</h4>
+        </section>
+
+        <section>
+          <h4>Verify Derived Proof Selective Disclosure</h4>
+        </section>
+
+        <section>
 
         </section>
       </section>
