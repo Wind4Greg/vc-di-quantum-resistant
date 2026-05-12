@@ -1919,17 +1919,18 @@ This section provides algorithms for a relatively efficient approach to enabling
 <em>selective disclosure</em> of a verifiable credential protected by a quantum
 safe signature algorithm. This approach utilizes a single quantum safe signature
 while sharing additional information concerning the cryptographic hashes of the
-processed "claims". This contrasts with the approach taken in [[VC-DI-ECDSA]] 
+processed <em>claims</em>. This contrasts with the approach taken in [[VC-DI-ECDSA]] 
 selective disclosure where a short signature is given for each processed  
-"claim" and no additional hashes are shared. This also contrasts with the 
+<em>claim</em> and no additional hashes are shared. This also contrasts with the 
 approach in [[VC-DI-BBS]] where the underlying signature scheme supports 
-multiple "claims" and only a single short signature is shared.
+multiple <em>claims</em> and only a single short signature is shared.
         </p>
         <p class="informative">
 In all the approaches to selective disclosure mentioned above the same core set
-of selective disclosure processing functions contained in [[VC-DI-ECDSA]] which
-enable flexibility and efficiency in implementations. The approach taken here is
-roughly more efficient when a signature is longer that twice the size of the
+of selective disclosure processing functions contained in [[VC-DI-ECDSA]] are 
+utilized which enables flexibility and efficiency in implementations. 
+The approach taken here is roughly more efficient when a signature is longer 
+than twice the size of the
 corresponding hash for a given security level, e.g., 64 bytes for security 
 category 1 or 2.  From [[[#CryptosuiteTable]]] we can see that this condition is
 true for all signature algorithms currently considered in this specification.
@@ -1938,8 +1939,53 @@ true for all signature algorithms currently considered in this specification.
 The general selective disclosure functions in [[VC-DI-ECDSA]] are planned to be
 moved to an updated version of  [[VC-DATA-INTEGRITY]].
         </p>
+        <p class="informative">
+Selective disclosure is enabled by the <em>issuer</em> creating a <em>base</em>
+proof as specified in section [[[#SD-Base]]]. The <em>issue</em> can specify 
+that certain claims are mandatory, i.e., have to be revealed to the 
+<em>verifier</em>. The <em>holder</em> on receiving the issued verifiable  
+credential with the <em>base</em> proof, uses it to create a related verifiable
+credential whose <em>claims</em> are a selected subset of <em>claims</em> from
+the received document. This is done with the algorithm of section 
+[[[#SD-Derived]]]. Finally the <em>verifier</em> uses the algorithm of section 
+[[[#SD-Verify-Derived]]] to verify the selectively disclosed verifiable 
+credential.
+        </p>
+The selective disclosure cryptosuites defined in this specification are  listed
+in  [[[#SDCryptosuiteTable]]]. Note that all selective disclosure cryptosuites 
+utilize the advanced features of [[RDF-CANON]].
+        <p>
 
-        <section>
+        </p>
+        <table id="SDCryptosuiteTable" class="data numbered">
+            <caption><em>Cryptosuites.</em> </caption>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Signature Algorithm</th>
+                <th>Signature Length</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>`mldsa44-sd-2024`</td>
+                <td>ML-DSA-44</td>
+                <td>2420</td>
+              </tr>
+              <tr>
+                <td>`slhdsa128-sd-2024`</td>
+                <td>SLH-DSA-SHA2-128s</td>
+                <td>7856</td>
+              </tr>
+              <tr>
+                <td>`falcon512-sd-2024`</td>
+                <td>FALCON-512</td>
+                <td>666</td>
+              </tr>
+            </tbody>
+          </table>
+
+        <section id="SD-Base">
           <h4>Create Selective Disclosure Base Proof</h4>
         </section>
 
@@ -1959,11 +2005,11 @@ moved to an updated version of  [[VC-DATA-INTEGRITY]].
           <h4>Base Proof Serialization Selective Disclosure</h4>
         </section>
 
-        <section>
+        <section  id="SD-Derived">
           <h4>Add Derived Proof Selective Disclosure</h4>
         </section>
 
-        <section>
+        <section  id="SD-Verify-Derived">
           <h4>Verify Derived Proof Selective Disclosure</h4>
         </section>
 
