@@ -1986,23 +1986,292 @@ utilize the advanced features of [[RDF-CANON]].
           </table>
 
         <section id="SD-Base">
+<!-- Base Proof Outline (to be removed)
+
+* Transform via Canonicalize and Group:  This produces N-Quads (statements) that are in 
+  the two groups "mandatory" and  "non-mandatory". These are ordered.
+* Create random salts for every statement in non-mandatory. SD-JWT uses 128 bit (16 byte) 
+  random salts.
+* Compute a hash over all the  "mandatory" statements and call it the "mandatory_hash". 
+  Note that we *don't* salt any of the mandatory statements since they must be revealed.
+* Create a list of non-mandatory salted hashes by computing the hashes salts concatenated 
+  with the statements. Note that we can add dummy elements to the end of the non-mandatory 
+  list to hide the exact number of statements.
+* Use a quantum safe signature scheme to sign the hashed concatenation of 
+  (proofHash, mandatoryHash, salts, saltedHashes).
+* Set the *proofValue* to the base64url CBOR encoded value of [signature, hmacKey, salts, 
+  saltedHashes, mandatoryPointers].
+-->
           <h4>Create Selective Disclosure Base Proof</h4>
+
+          <p>
+The following algorithm specifies how to create a [=data integrity proof=] given
+an <a>unsecured data document</a>. Required inputs are an
+<a>unsecured data document</a> ([=map=] |unsecuredDocument|), and a set of proof
+options ([=map=] |options|). A [=data integrity proof=] ([=map=]), or an error,
+is produced as output.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+Let |proof| be a clone of the proof options, |options|.
+            </li>
+            <li>
+Let |proofConfig| be the result of running the algorithm in
+Section [[[#ProofConfigurationAlg]]] with
+|options| passed as a parameter.
+            </li>
+            <li>
+Let |transformedData| be the result of running the algorithm in Section <a
+href="#base-proof-transformation-selective-disclosure"></a> with 
+|unsecuredDocument|,
+|proofConfig|, and |options| passed as parameters.
+            </li>
+            <li>
+Let |hashData| be the result of running the algorithm in Section
+[[[#base-proof-hashing-selective-disclosure]]] with |transformedData| and |proofConfig|
+passed as a parameters.
+            </li>
+            <li>
+Let |proofBytes| be the result of running the algorithm in Section
+[[[#base-proof-serialization-selective-disclosure]]] with |hashData| and
+|options| passed as parameters.
+            </li>
+            <li>
+Let |proof|.|proofValue| be a <a data-cite="CID#multibase-0">
+base64-url-encoded Multibase value</a> of the |proofBytes|.
+            </li>
+            <li>
+Return |proof| as the [=data integrity proof=].
+            </li>
+          </ol>
         </section>
 
         <section>
           <h4>Base Proof Transformation Selective Disclosure</h4>
+
+          <p>
+The following algorithm specifies how to transform an unsecured input document
+into a transformed document that is ready to be provided as input to the
+hashing algorithm in Section [[[#base-proof-hashing-selective-disclosure]]].
+          </p>
+
+          <p>
+Required inputs to this algorithm are an
+<a data-cite="vc-data-integrity#dfn-unsecured-data-document">
+unsecured data document</a> (|unsecuredDocument|) and
+transformation options (|options|). The
+transformation options MUST contain a type identifier for the
+<a data-cite="vc-data-integrity#dfn-cryptosuite">
+cryptographic suite</a> (|type|), a cryptosuite
+identifier (|cryptosuite|), and a verification method
+(|verificationMethod|). The transformation options MUST contain an
+array of mandatory JSON pointers (|mandatoryPointers|) and MAY contain
+additional options, such as a JSON-LD document loader. A <em>transformed data
+document</em> is produced as output. Whenever this algorithm encodes strings, it
+MUST use UTF-8 encoding.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+Initialize |hmac| to an HMAC API using a locally generated and exportable HMAC
+key. The HMAC uses the same hash algorithm used in the signature algorithm,
+which is detected via the |verificationMethod| provided to the
+function, i.e., SHA-256 for a security category 1 or 2 signature algorithm. 
+Per the recommendations of
+[[RFC2104]], the HMAC key MUST be the same length as the digest size; 
+for SHA-256,
+this is 256 bits or 32 bytes.
+            </li>
+            <li>
+Initialize |labelMapFactoryFunction| to the result of calling the algorithm of
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#createhmacidlabelmapfunction">
+Section 3.4.4 createHmacIdLabelMapFunction</a> of [[VC-DI-ECDSA]], 
+passing |hmac|.
+            </li>
+            <li>
+Initialize |groupDefinitions| to a map with an entry with a key of the string
+"mandatory" and a value of |mandatoryPointers|.
+            </li>
+            <li>
+Initialize |groups| to the result of calling the algorithm in
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#canonicalizeandgroup">Section 3.3.16
+canonicalizeAndGroup</a> of the [[VC-DI-ECDSA]] specification,
+passing |labelMapFactoryFunction|,
+|groupDefinitions|, |unsecuredDocument| as |document|, and any custom JSON-LD
+API options. Note: This step transforms the document into an array of canonical
+N-Quads with pseudorandom blank node identifiers based on |hmac|, and groups
+the N-Quad strings according to selections based on JSON pointers.
+            </li>
+            <li>
+Initialize |mandatory| to the values in the |groups|.|mandatory|.|matching| map.
+            </li>
+            <li>
+Initialize |nonMandatory| to the values in the
+|groups|.|mandatory|.|nonMatching| map.
+            </li>
+            <li>
+Initialize |hmacKey| to the result of exporting the HMAC key from |hmac|.
+            </li>
+            <li>
+Return an object with `mandatoryPointers` set to |mandatoryPointers|,
+`mandatory` set to |mandatory|, `nonMandatory` set to |nonMandatory|,
+and `hmacKey` set to |hmacKey|.
+            </li>
+          </ol>
         </section>
 
         <section>
           <h4>Base Proof Hashing Selective Disclosure</h4>
-        </section>
+<!-- 
+* Create random salts for every statement in non-mandatory. SD-JWT uses 128 bit (16 byte) 
+  random salts.
+* Compute a hash over all the  "mandatory" statements and call it the "mandatory_hash". 
+  Note that we *don't* salt any of the mandatory statements since they must be revealed.
+* Create a list of non-mandatory salted hashes by computing the hashes salts concatenated 
+  with the statements. Note that we can add dummy elements to the end of the non-mandatory 
+  list to hide the exact number of statements.           
+-->
 
-        <section>
-          <h4>Base Proof Configuration Selective Disclosure</h4>
+          <p>
+The following algorithm specifies how to cryptographically hash a
+<em>transformed data document</em> and <em>proof configuration</em>
+into cryptographic hash data that is ready to be provided as input to the
+algorithms in Section [[[#base-proof-serialization-selective-disclosure]]].
+          </p>
+
+          <p>
+The required inputs to this algorithm are a <em>transformed data document</em>
+(|transformedDocument|) and <em>canonical proof configuration</em>
+(|canonicalProofConfig|). A <em>hash data</em> value represented
+as an object is produced as output.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+Initialize |proofHash| to the result of calling the RDF Dataset Canonicalization
+algorithm [[RDF-CANON]] on |canonicalProofConfig| and then cryptographically
+hashing the result using the same hash that is used by the signature algorithm,
+i.e., SHA-256 for a security category 1 or 2 algorithms. Note: This step can 
+be performed in parallel;
+it only needs to be completed before this algorithm terminates as the result is
+part of the return value.
+            </li>
+            <li>
+Initialize |mandatoryHash| to the result of calling the the algorithm in 
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#hashmandatorynquads">Section 3.3.17
+hashMandatoryNQuads</a> of the [[VC-DI-ECDSA]] specification,
+passing |transformedDocument|.|mandatory|.
+            </li>
+            <li>
+Initialize |hashData| as a deep copy of |transformedDocument| and
+add |proofHash| as `proofHash` and |mandatoryHash| as `mandatoryHash` to that
+object.
+            </li>
+            <li>
+Initialize |salts| as an empty array. For each |nonMandatory| item in the 
+|transformedDocument| create a true cryptographically secure random number of 
+byte length half the size of the hash length, e.g., for security category 1 or 2
+using SHA-256 the length of each salt would be 16 bytes.
+            </li>
+            <li>
+Initialize |saltedHashes| as an empty array. For each |nonMandatory| item in the 
+|transformedDocument| compute the appropriate hash (SHA-256 for security 
+category 1 or 2 signature algorithms) over the concatenation of each |salt| and
+its corresponding |nonMandatory| item. Add this hash value to the |saltedHashes|
+array.
+            </li>
+            <li>
+Add |salts| as `salts` and |saltedHashes| as  `saltedHashes` to  the |hashData|
+object.
+            </li>
+            <li>
+Return |hashData| as <em>hash data</em>.
+            </li>
+          </ol>
+
         </section>
 
         <section>
           <h4>Base Proof Serialization Selective Disclosure</h4>
+<!-- 
+* Use a quantum safe signature scheme to sign the hashed concatenation of 
+  (proofHash, mandatoryHash, salts, saltedHashes).
+* Set the *proofValue* to the base64url CBOR encoded value of [signature, hmacKey, salts, 
+  saltedHashes, mandatoryPointers].
+-->
+
+          <p>
+The following algorithm specifies how to create a base proof; called by an
+issuer of an Quantum-Safe-SD-protected Verifiable Credential. 
+The base proof is to be
+given only to the holder, who is responsible for generating a derived proof from
+it, exposing only selectively disclosed details in the proof to a verifier. This
+algorithm is designed to be used in conjunction with the algorithms defined
+in the Data Integrity [[VC-DATA-INTEGRITY]] specification,
+<a data-cite="vc-data-integrity#algorithms">
+Section 4: Algorithms</a>. Required inputs are
+cryptographic hash data (|hashData|) and
+<em>proof options</em> (|options|). The
+<em>proof options</em> MUST contain a type identifier for the
+<a data-cite="vc-data-integrity#dfn-cryptosuite">
+cryptographic suite</a> (|type|) and MAY contain a cryptosuite
+identifier (|cryptosuite|). A single <em>digital proof</em> value
+represented as series of bytes is produced as output.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+Initialize |proofHash|, |mandatoryPointers|, |mandatoryHash|, |salts|, 
+|saltedHashes|,
+and |hmacKey| to the values associated with their property names
+|hashData|.
+            </li>
+            <li>
+Initialize |toSign| the hash of the concatenation of |proofHash|, 
+|mandatoryHash|, |salts|,
+and |saltedHashes| where the order of the concatenation MUST be followed. The
+cryptographic hash algorithm is that specified for signature algorithm in 
+[[[#HashSigTable]]], e.g., SHA-256 for a security category 1 or 2 algorithms.
+            </li>
+            <li>
+Initialize |signature| to the result of digitally signing |toSign| using the
+private key associated with the base proof verification method.
+            </li>
+            <li>
+* Set the *proofValue* to the base64url CBOR encoded value of [signature, hmacKey, salts, 
+  saltedHashes, mandatoryPointers].
+            </li>
+            <li>
+Initialize a byte array, |proofValue|, that starts with the Quantum-Safe-SD 
+base proof header bytes 0xd9, 0x5d, and 0x10.
+            </li>
+            <li>
+Initialize |components| to an array with five elements containing the values of:
+|signature|, |hmacKey|, |salts|, |saltedHashes|, and |mandatoryPointers|.
+            </li>
+            <li>
+CBOR-encode |components| per [[RFC8949]] where CBOR tagging MUST NOT be used on
+any of the |components|. Append the produced encoded value to |proofValue|.
+            </li>
+            <li>
+Initialize |baseProof| to a string with the Multibase
+base64url-no-pad-encoding of |proofValue| as described in the
+<a data-cite="CID#multibase-0">
+Multibase section</a> of [[[CID]]]. That is, return a string
+starting with "`u`" and ending with the base64url-no-pad-encoded value of
+|proofValue|.
+            </li>
+            <li>
+Return |baseProof| as <em>base proof</em>.
+            </li>
+          </ol>
+
+          <p class="ednote">
+The Quantum-Safe-SD base proof header bytes 0xd9, 0x5d, and 0x10 were chosen 
+to not collide with any of the [[VC-DI-ECDSA]] or [[VC-DI-BBS]] values. They are
+currently tentative.
+          </p>
         </section>
 
         <section  id="SD-Derived">
