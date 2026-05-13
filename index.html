@@ -1986,22 +1986,6 @@ utilize the advanced features of [[RDF-CANON]].
           </table>
 
         <section id="SD-Base">
-<!-- Base Proof Outline (to be removed)
-
-* Transform via Canonicalize and Group:  This produces N-Quads (statements) that are in 
-  the two groups "mandatory" and  "non-mandatory". These are ordered.
-* Create random salts for every statement in non-mandatory. SD-JWT uses 128 bit (16 byte) 
-  random salts.
-* Compute a hash over all the  "mandatory" statements and call it the "mandatory_hash". 
-  Note that we *don't* salt any of the mandatory statements since they must be revealed.
-* Create a list of non-mandatory salted hashes by computing the hashes salts concatenated 
-  with the statements. Note that we can add dummy elements to the end of the non-mandatory 
-  list to hide the exact number of statements.
-* Use a quantum safe signature scheme to sign the hashed concatenation of 
-  (proofHash, mandatoryHash, salts, saltedHashes).
-* Set the *proofValue* to the base64url CBOR encoded value of [signature, hmacKey, salts, 
-  saltedHashes, mandatoryPointers].
--->
           <h4>Create Selective Disclosure Base Proof</h4>
 
           <p>
@@ -2123,15 +2107,6 @@ and `hmacKey` set to |hmacKey|.
 
         <section>
           <h4>Base Proof Hashing Selective Disclosure</h4>
-<!-- 
-* Create random salts for every statement in non-mandatory. SD-JWT uses 128 bit (16 byte) 
-  random salts.
-* Compute a hash over all the  "mandatory" statements and call it the "mandatory_hash". 
-  Note that we *don't* salt any of the mandatory statements since they must be revealed.
-* Create a list of non-mandatory salted hashes by computing the hashes salts concatenated 
-  with the statements. Note that we can add dummy elements to the end of the non-mandatory 
-  list to hide the exact number of statements.           
--->
 
           <p>
 The following algorithm specifies how to cryptographically hash a
@@ -2170,7 +2145,7 @@ object.
             </li>
             <li>
 Initialize |salts| as an empty array. For each |nonMandatory| item in the 
-|transformedDocument| create a true cryptographically secure random number of 
+|transformedDocument| create a cryptographically secure random number of 
 byte length half the size of the hash length, e.g., for security category 1 or 2
 using SHA-256 the length of each salt would be 16 bytes.
             </li>
@@ -2189,17 +2164,15 @@ object.
 Return |hashData| as <em>hash data</em>.
             </li>
           </ol>
-
+          <p class="ednote">
+To do: provide background on <em>cryptographic random number generation</em> in the 
+security considerations section. For example cite appropriate references such as
+NIST SP-800-90A,B,C documents and/or BSI AIS 20 and AIS 31 documents.
+          </p>
         </section>
 
         <section>
           <h4>Base Proof Serialization Selective Disclosure</h4>
-<!-- 
-* Use a quantum safe signature scheme to sign the hashed concatenation of 
-  (proofHash, mandatoryHash, salts, saltedHashes).
-* Set the *proofValue* to the base64url CBOR encoded value of [signature, hmacKey, salts, 
-  saltedHashes, mandatoryPointers].
--->
 
           <p>
 The following algorithm specifies how to create a base proof; called by an
@@ -2276,6 +2249,262 @@ currently tentative.
 
         <section  id="SD-Derived">
           <h4>Add Derived Proof Selective Disclosure</h4>
+
+          <p>
+The following algorithm creates a selective disclosure derived proof; called by
+a holder of an Quantum-Safe-SD protected [=verifiable credential=].
+The derived proof is to be given to the [=verifier=]. The inputs include a
+JSON-LD document (|document|), Quantum-Safe-SD base proof
+(|proof|), an array of JSON pointers to use to selectively disclose
+statements (|selectivePointers|), and any custom JSON-LD API options,
+such as a document loader. A single <em>selectively revealed document</em>
+value, represented as an object, is produced as output.
+          </p>
+          <ol>
+            <li>
+Initialize |signature|, |salts|, |saltedHashes|, |labelMap|,
+|mandatoryIndexes|, |selectiveIndexes| and |revealDocument| to the values 
+associated with their
+property names in the object returned when calling the algorithm in
+Section [[[#Derived-Create-Disclosure-Data]]], passing the |document|, |proof|,
+|selectivePointers|, and any custom JSON-LD API options, such as a document
+loader.
+            </li>
+            <li>
+Initialize |newProof| to a shallow copy of |proof|.
+            </li>
+
+            <li>
+Replace |proofValue| in |newProof| with the result of calling the algorithm
+in Section [[[#SD-Derived-Serialize-Proof]]], passing
+|signature|, |publicKey|, |signatures|, |labelMap|, and |mandatoryIndexes|.
+            </li>
+            <li>
+Set the value of the "proof" property in |revealDocument| to |newProof|.
+            </li>
+            <li>
+Return |revealDocument| as the <em>selectively revealed document</em>.
+            </li>
+          </ol>
+
+        </section>
+        <section id="Derived-Create-Disclosure-Data">
+          <h4>Derived Proof: Create Disclosure Data</h4>
+
+          <p>
+The following algorithm creates data to be used to generate a derived proof. The
+inputs include a JSON-LD document (|document|), an Quantum-Safe-SD base proof
+(|proof|), an array of JSON pointers to use to selectively disclose
+statements (|selectivePointers|), and any custom JSON-LD API options,
+such as a document loader). A single object, <em>disclosure data</em>, is
+produced as output, which contains the "signature", "salts",
+"saltedHashes", "labelMap", "mandatoryIndexes", "selectiveIndexes" and
+"revealDocument" fields.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+Initialize |signature|, |hmacKey|, |salts|, |saltedHashes|, and
+|mandatoryPointers| to the values of the associated properties in the object
+returned when calling the algorithm in Section
+[[[#Derived-Parse-Base-Proof]]], passing the |proofValue| from |proof|.
+            </li>
+            <li>
+Initialize |hmac| to an HMAC API using |hmacKey|. The HMAC uses the same hash
+algorithm used in the signature algorithm, i.e., SHA-256 for a security category
+1 or 2 algorithm.
+            </li>
+            <li>
+Initialize |labelMapFactoryFunction| to the result of calling the algorithm of
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#createhmacidlabelmapfunction">
+Section 3.4.4 createHmacIdLabelMapFunction</a> of [[VC-DI-ECDSA]], 
+passing |hmac|.
+            </li>
+            <li>
+Initialize |combinedPointers| to the concatenation of |mandatoryPointers|
+and |selectivePointers|.
+            </li>
+            <li>
+Initialize |groupDefinitions| to a map with the following entries: key of
+the string `"mandatory"` and value of |mandatoryPointers|, key of the string
+`"selective"` and value of |selectivePointers|, and key of the string `"combined"`
+and value of |combinedPointers|.
+            </li>
+            <li>
+Initialize |groups| and |labelMap| to their associated values in the result
+of calling the algorithm in 
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#canonicalizeandgroup">Section 3.3.16
+canonicalizeAndGroup</a> of the [[VC-DI-ECDSA]] specification,
+passing |document|,
+|labelMapFactoryFunction|, |groupDefinitions|, and any custom
+JSON-LD API options as parameters. Note: This step transforms the document into
+an array of canonical N-Quad strings with pseudorandom blank node identifiers
+based on |hmac|, and groups the N-Quad strings according to selections based on
+JSON pointers.
+            </li>
+            <li>
+Compute the mandatory indexes. Initialize |relativeIndex| to zero.
+            </li>
+            <li>
+Initialize |mandatoryIndexes| to an empty array.
+            </li>
+            <li>
+For each |absoluteIndex| in the keys in |groups|.|combined|.|matching|, convert
+the absolute index of any <em>mandatory</em> N-Quad to an index relative to the 
+combined output that is to be revealed:
+              <ol class="algorithm">
+                <li>
+If |groups|.|mandatory|.|matching| has |absoluteIndex| as a key, then append
+|relativeIndex| to |mandatoryIndexes|.
+                </li>
+                <li>
+Increment |relativeIndex|.
+                </li>
+              </ol>
+            </li>
+            <li>
+Compute the selective indexes. Initialize |relativeIndex| to zero.
+            </li>
+            <li>
+Initialize |selectiveIndexes| to an empty array.
+            </li>
+            <li>
+For each |absoluteIndex| in the keys in |groups|.|combined|.|matching|, convert
+the absolute index of any <em>selective</em> N-Quad to an index relative to the 
+combined output that is to be revealed:
+              <ol class="algorithm">
+                <li>
+If |groups|.|selective|.|matching| has |absoluteIndex| as a key, then append
+|relativeIndex| to |selectiveIndexes|.
+                </li>
+                <li>
+Increment |relativeIndex|.
+                </li>
+              </ol>
+            </li>
+            <li>
+Initialize |revealDocument| to the result of the calling the algorithm in 
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#selectjsonld">3.4.13 selectJsonLd
+</a> of [[VC-DI-ECDSA]],
+passing |document|, and |combinedPointers| as |pointers|.
+            </li>
+            <li>
+Run the RDF Dataset Canonicalization Algorithm [[RDF-CANON]] on
+the joined |combinedGroup.deskolemizedNQuads|, passing any custom
+options, and get the canonical bnode identifier map, |canonicalIdMap|.
+Note: This map includes the canonical blank node identifiers that a verifier
+will produce when they canonicalize the reveal document.
+            </li>
+            <li>
+Initialize |verifierLabelMap| to an empty map. This map will map
+the canonical blank node identifiers the verifier will produce when they
+canonicalize the revealed document to the blank node identifiers that were
+originally signed in the base proof.
+            </li>
+            <li>
+For each key (|inputLabel|) and value (|verifierLabel|) in |canonicalIdMap|:
+              <ol class="algorithm">
+                <li>
+Add an entry to |verifierLabelMap| using |verifierLabel| as the key and the
+value associated with |inputLabel| as a key in |labelMap| as the value.
+                </li>
+              </ol>
+            </li>
+            <li>
+Return an object with properties matching |signature|, |salts|,
+|saltedHashes|, `verifierLabelMap` for |labelMap|, |mandatoryIndexes|, 
+|selectiveIndexes|, and |revealDocument|.
+            </li>
+          </ol>
+
+        </section>
+
+        <section id="Derived-Parse-Base-Proof">
+          <h4>Derived Proof: Parse Base</h4>
+          <p>
+The following algorithm parses the components of an Quantum Safe selective
+disclosure base proof value. The required inputs are a proof value
+(|proofValue|). A single object <em>parsed base proof</em>, containing
+five elements, using the names `signature`, `hmacKey`, `salts`
+`saltedHashes`, and `mandatoryPointers`, is produced  as output.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+If the |proofValue| string does not start with `u`, indicating that it is
+a multibase-base64url-no-pad-encoded value, an error MUST be raised
+and SHOULD convey an error type of
+<a data-cite="VC-DATA-INTEGRITY#PROOF_VERIFICATION_ERROR">PROOF_VERIFICATION_ERROR</a>.
+            </li>
+            <li>
+Initialize |decodedProofValue| to the result of base64url-no-pad-decoding the
+substring after the leading `u` in |proofValue|.
+            </li>
+            <li>
+If the |decodedProofValue| does not start with the Quantum-Safe-SD base proof
+header bytes `0xd9`, `0x5d`, and `0x10`, an error MUST be raised and SHOULD
+convey an error type of
+<a data-cite="VC-DATA-INTEGRITY#PROOF_VERIFICATION_ERROR">PROOF_VERIFICATION_ERROR</a>.
+            </li>
+            <li>
+Initialize |components| to an array that is the result of CBOR-decoding the
+bytes that follow the three-byte Quantum-Safe-SD base proof header. Confirm that 
+the result is an array of five elements.
+            </li>
+            <li>
+Return an object with properties set to the five elements, using the names
+`signature`, `hmacKey`, `salts`, `saltedHashes`, and `mandatoryPointers`,
+respectively.
+            </li>
+          </ol>
+
+        </section>
+
+        <section id="SD-Derived-Serialize-Proof">
+          <h4>Serialize Derived Proof Value</h4>
+
+          <p>
+The following algorithm serializes a Quantum-Safe-SD derived proof value. 
+The required inputs are a base signature (|signature|), an array of salts 
+(|salts|), an array of salted  hashes (|saltedHashes|), a label map 
+(|labelMap|), an array of mandatory indexes (|mandatoryIndexes|). and an array 
+of selective indexes (|selectiveIndexes|). A single <em>derived proof</em> 
+value, serialized as a byte string, is produced as output.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+Initialize |compressedLabelMap| to the result of calling the algorithm in
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#compresslabelmap">Section 3.5.5 
+compressLabelMap</a>  of  [[VC-DI-ECDSA]], passing |labelMap| as the parameter.
+            </li>
+            <li>
+Initialize a byte array, |proofValue|, that starts with the Quantum-Safe-SD 
+disclosure proof header bytes `0xd9`, `0x5d`, and `0x11`.
+            </li>
+            <li>
+Initialize |components| to an array with six elements containing the values of:
+|signature|, |salts|, |saltedHashes|, |compressedLabelMap|, |mandatoryIndexes|,
+|selectiveIndexes|.
+            </li>
+            <li>
+CBOR-encode |components| per [[RFC8949]] where CBOR tagging MUST NOT be used on
+any of the |components|. Append the produced encoded value to |proofValue|.
+            </li>
+            <li>
+Return the <em>derived proof</em> as a string with the
+base64url-no-pad-encoding of |proofValue| as described in the
+<a data-cite="CID#multibase-0">
+Multibase section</a> of [[[CID]]]. That is, return a string
+starting with "`u`" and ending with the base64url-no-pad-encoded value of
+|proofValue|.
+            </li>
+          </ol>
+          <p class="ednote">
+The Quantum-Safe-SD disclosure proof header bytes `0xd9`, `0x5d`, and `0x11` 
+were chosen to not conflict with values used by [[VC-DI-ECDSA]] and 
+[[VC-DI-BBS]] and are tentative.
+          </p>
         </section>
 
         <section  id="SD-Verify-Derived">
