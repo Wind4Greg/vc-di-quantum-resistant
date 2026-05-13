@@ -2609,18 +2609,6 @@ data-cite="INFRA#nulls">Null</a>
         <section id="createverifydata">
           <h4>Create Verify Data</h4>
 
-          <p class="ednote">
-<strong>Work in Progress</strong>. Updating from [[VC-DI-ECDSA]] version.         
-          </p>
-<!-- 
-const createVerifyData = {
-  signature: bytesToHex(signature),
-  proofHash: bytesToHex(proofHash),
-  salts: salts.map(s => bytesToHex(s)),
-  saltedHashes: saltedHashes.map(sh => bytesToHex(sh)),
-  nonMandatory,
-  mandatoryHash: bytesToHex(mandatoryHash)
-}           -->
           <p>
 The following algorithm creates the data needed to perform verification of an
 Quantum-Safe-SD protected [=verifiable credential=]. The inputs include a JSON-LD
@@ -2628,7 +2616,7 @@ document (|document|), an Quantum-Safe-SD disclosure proof (|proof|),
 and any custom JSON-LD API options, such as a document loader. A single
 <em>verify data</em> object value is produced as output containing the following
 fields: "signature", "proofHash", "salts", "saltedHashes", "nonMandatory",
-and "mandatoryHash".
+"mandatoryHash", and "selectiveIndexes".
           </p>
 
           <ol class="algorithm">
@@ -2646,14 +2634,16 @@ and |selectiveIndexes| to the values associated with their property names in the
 object returned when calling the algorithm in Section
 [[[#parsederivedproofvalue]]], passing |proofValue| from |proof|.
             </li>
-            <!-- STOPPED HERE to work on parsing... -->
             <li>
 Initialize |labelMapFactoryFunction| to the result of calling the algorithm of
-Section [[[#createlabelmapfunction]]].
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#createlabelmapfunction">Section 
+  3.4.3 createLabelMapFunction</a> of [[VC-DI-ECDSA]].
             </li>
             <li>
-Initialize |nquads| to the result of calling the algorithm of section
-[[[#labelreplacementcanonicalizejsonld]]], passing |document|,
+Initialize |nquads| to the result of calling the algorithm of 
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#labelreplacementcanonicalizejsonld">
+Section 3.4.2 labelReplacementCanonicalizeJsonLd</a>  of  [[VC-DI-ECDSA]],
+passing |document|,
 |labelMapFactoryFunction|, and any custom
 JSON-LD API options. Note: This step transforms the document into an array of
 canonical N-Quads with pseudorandom blank node identifiers based on |labelMap|.
@@ -2677,12 +2667,14 @@ Otherwise, add |nq| to |nonMandatory|.
               </ol>
             </li>
             <li>
-Initialize |mandatoryHash| to the result of calling the "hashMandatory"
-primitive, passing |mandatory|.
+Initialize |mandatoryHash| to the result of calling the algorithm of
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#hashmandatorynquads">Section 3.4.17 
+hashMandatoryNQuads</a> of [[VC-DI-ECDSA]], passing |mandatory|.
             </li>
             <li>
-Return an object with properties matching |baseSignature|, |proofHash|,
-|publicKey|, |signatures|, |nonMandatory|, and |mandatoryHash|.
+Return an object with properties matching |signature|, |proofHash|,
+|salts|, |saltedHashes|, |nonMandatory|, |mandatoryHash|, and 
+|selectiveIndexes|.
             </li>
           </ol>
 
