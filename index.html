@@ -501,8 +501,9 @@ of [[VC-DATA-INTEGRITY]] with the following restrictions.
 The `type` property of the proof MUST be `DataIntegrityProof`.
           </p>
           <p>
-The `cryptosuite` property of the proof MUST be one of the following values from
-[[[#CryptosuiteTable]]].
+The `cryptosuite` property of the proof MUST be one of the values from
+[[[#CryptosuiteTable]]], below, or [[[#SDCryptosuiteTable]]] for selective 
+disclosure cryptosuites.
           </p>
 
           <table id="CryptosuiteTable" class="data numbered">
@@ -1941,7 +1942,7 @@ moved to an updated version of  [[VC-DATA-INTEGRITY]].
         </p>
         <p class="informative">
 Selective disclosure is enabled by the <em>issuer</em> creating a <em>base</em>
-proof as specified in section [[[#SD-Base]]]. The <em>issue</em> can specify 
+proof as specified in section [[[#SD-Base]]]. The <em>issuer</em> can specify 
 that certain claims are mandatory, i.e., have to be revealed to the 
 <em>verifier</em>. The <em>holder</em> on receiving the issued verifiable  
 credential with the <em>base</em> proof, uses it to create a related verifiable
@@ -2210,10 +2211,6 @@ cryptographic hash algorithm is that specified for signature algorithm in
             <li>
 Initialize |signature| to the result of digitally signing |toSign| using the
 private key associated with the base proof verification method.
-            </li>
-            <li>
-* Set the *proofValue* to the base64url CBOR encoded value of [signature, hmacKey, salts, 
-  saltedHashes, mandatoryPointers].
             </li>
             <li>
 Initialize a byte array, |proofValue|, that starts with the Quantum-Safe-SD 
