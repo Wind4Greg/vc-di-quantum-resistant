@@ -1,0 +1,11 @@
+{
+  "mldsa44-sd-2024": {
+    "proofHash": "f119556716f09ebb9efb36e9454671095ed75dc2a8d4ca003d5cf52605f4bad5"
+  },
+  "slhdsa128-sd-2024": {
+    "proofHash": "1808219be86250e9588cf93db2767538992bc72542aae510871c4b9216a45cbb"
+  },
+  "falcon512-sd-2024": {
+    "proofHash": "6619ddc3de75f7c879ac5352449e3a07188e7a8f7b4c7eb92c4efc6b909bb130"
+  }
+}
