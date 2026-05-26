@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quantum-Safe Cryptosuites v0.3</title>
+    <title>Quantum-Resistant Cryptosuites v1.0</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <!--
       === NOTA BENE ===
@@ -12,13 +12,13 @@
 
     <script class="remove">
       var respecConfig = {
-        subtitle: "Achieving Data Integrity using Post-Quantum Cryptography",
+        subtitle: "Quantum-resistant cryptosuites for Data Integrity",
         // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-        group: "credentials",
-        specStatus: "CG-FINAL",
+        group: "vc",
+        specStatus: "ED",
 
         // the specification's short name, as in http://www.w3.org/TR/short-name/
-        shortName: "di-quantum-safe",
+        shortName: "di-quantum-resistant",
 
         // if you wish the publication date to be other than today, set this
         //publishDate:  "2023-11-14",
@@ -29,8 +29,8 @@
         // previousMaturity:  "WD",
 
         // if there a publicly available Editor's Draft, this is the link
-        edDraftURI: "https://w3c-ccg.github.io/di-quantum-safe/",
-        latestVersion: "https://www.w3.org/community/reports/credentials/CG-FINAL-di-quantum-safe-20260422/",
+        edDraftURI: "https://w3c-ccg.github.io/di-quantum-resistant/",
+        //latestVersion: "https://www.w3.org/community/reports/credentials/CG-FINAL-di-quantum-safe-20260422/",
 
         // if this is a LCWD, uncomment and set the end of its review period
         //implementationReportURI: "https://w3c.github.io/vc-data-integrity/implementations/",
@@ -43,32 +43,14 @@
         // editors, add as many as you like
         // only "name" is required
         editors: [{
-          name: "Andrea D'Intino",
-          url: "https://www.linkedin.com/in/andrea-d-intino/",
-          company: "Forkbomb",
-          companyURL: "https://forkbomb.eu/",
-          w3cid: 0
-        }, {
-          name: "Will Abramson",
-          url: "https://drwip.com/",
-          company: "Legendary Requirements",
-          companyURL: "https://legreq.com/",
-          w3cid: 0
-        }, {
-          name: "Denis \"Jaromil\" Roio",
-          url: "https://jaromil.dyne.org/",
-          company: "Dyne",
-          companyURL: "https://dyne.org/",
-          w3cid: 0
+          name: "Greg Bernstein", url: "https://www.grotto-networking.com/",
+          company: "Invited Expert", w3cid: 140479
         }, {
           name: "Manu Sporny",
           url: "https://www.linkedin.com/in/manusporny/",
           company: "Digital Bazaar",
           companyURL: "https://digitalbazaar.com/",
           w3cid: 41758
-        }, {
-          name: "Greg Bernstein", url: "https://www.grotto-networking.com/",
-          company: "Invited Expert", w3cid: 140479
         }],
 
         // authors, add as many as you like.
@@ -76,23 +58,8 @@
         // only "name" is required. Same format as editors.
 
         authors: [{
-          name: "Andrea D'Intino",
-          url: "https://www.linkedin.com/in/andrea-d-intino/",
-          company: "Forkbomb",
-          companyURL: "https://forkbomb.eu/",
-          w3cid: 0
-        }, {
-          name: "Will Abramson",
-          url: "https://drwip.com/",
-          company: "Legendary Requirements",
-          companyURL: "https://legreq.com/",
-          w3cid: 0
-        }, {
-          name: "Denis \"Jaromil\" Roio",
-          url: "https://jaromil.dyne.org/",
-          company: "Dyne",
-          companyURL: "https://dyne.org/",
-          w3cid: 0
+          name: "Greg Bernstein", url: "https://www.grotto-networking.com/",
+          company: "Invited Expert", w3cid: 140479
         }, {
           name: "Dave Longley", url: "https://digitalbazaar.com/",
           company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/",
@@ -104,8 +71,11 @@
           companyURL: "https://digitalbazaar.com/",
           w3cid: 41758
         }, {
-          name: "Greg Bernstein", url: "https://www.grotto-networking.com/",
-          company: "Invited Expert", w3cid: 140479
+          name: "Will Abramson",
+          url: "https://drwip.com/",
+          company: "Legendary Requirements",
+          companyURL: "https://legreq.com/",
+          w3cid: 0
         }],
 
         // extend the bibliography entries
@@ -120,7 +90,7 @@
         // name (with the @w3c.org) of the public mailing to which comments are due
         //wgPublicList: "public-credentials",
 
-        github: "https://github.com/w3c-ccg/di-quantum-safe/",
+        github: "https://github.com/w3c-ccg/di-quantum-resistant/",
 
         otherLinks: [],
 
