@@ -141,7 +141,7 @@ ol.algorithm li:before {
 <meta name="color-scheme" content="light">
 <meta name="description" content="This specification describes several Data Integrity Cryptosuites for use when
 generating a digital signature using Post-Quantum digital signature algorithms.">
-<link rel="canonical" href="https://www.w3.org/TR/vc-di-quantum-resistant/">
+<link rel="canonical" href="https://www.w3.org/TR/vc-di-quantum-resistant-1.0/">
 <style>
 var:hover{text-decoration:underline;cursor:pointer}
 var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
@@ -170,7 +170,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "subtitle": "Quantum-resistant cryptosuites for Data Integrity",
   "group": "vc",
   "specStatus": "FPWD",
-  "shortName": "vc-di-quantum-resistant",
+  "shortName": "vc-di-quantum-resistant-1.0",
   "publishDate": "2026-06-16",
   "edDraftURI": "https://w3c.github.io/vc-di-quantum-resistant/",
   "editors": [
@@ -358,14 +358,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://www.w3.org/TR/2026/WD-vc-di-quantum-resistant-20260616/">https://www.w3.org/TR/2026/WD-vc-di-quantum-resistant-20260616/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2026/WD-vc-di-quantum-resistant-1.0-20260616/">https://www.w3.org/TR/2026/WD-vc-di-quantum-resistant-1.0-20260616/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
-                <a href="https://www.w3.org/TR/vc-di-quantum-resistant/">https://www.w3.org/TR/vc-di-quantum-resistant/</a>
+                <a href="https://www.w3.org/TR/vc-di-quantum-resistant-1.0/">https://www.w3.org/TR/vc-di-quantum-resistant-1.0/</a>
               </dd>
         <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/vc-di-quantum-resistant/">https://w3c.github.io/vc-di-quantum-resistant/</a></dd>
         <dt>History:</dt><dd>
-                    <a href="https://www.w3.org/standards/history/vc-di-quantum-resistant/">https://www.w3.org/standards/history/vc-di-quantum-resistant/</a>
+                    <a href="https://www.w3.org/standards/history/vc-di-quantum-resistant-1.0/">https://www.w3.org/standards/history/vc-di-quantum-resistant-1.0/</a>
                   </dd><dd>
                     <a href="https://github.com/w3c/vc-di-quantum-resistant/commits/">Commit history</a>
                   </dd>
@@ -632,10 +632,10 @@ Examples of all the <code>publicKeyMultibase</code> encodings defined in this sp
 can be found in appendix <a href="#TestVectors" data-matched-text="[[[#TestVectors]]]" class="sec-ref"><bdi class="secno">A. </bdi>Test Vectors</a>.
           </p>
           <div class="note" id="issue-container-generatedID"><div class="ednote-title marker" id="h-ednote"><span>Editor's note</span></div><p class="">
-Note*: The codes given in <a href="#MultiKeyTable" data-matched-text="[[[#MultiKeyTable]]]" class="table-ref" title="Public Key Summary, all sizes in bytes.">Table <bdi class="">1</bdi></a> for FALCON-512 and SQIsign-I are 
-preliminary and not currently registered with 
+Note*: The codes given in <a href="#MultiKeyTable" data-matched-text="[[[#MultiKeyTable]]]" class="table-ref" title="Public Key Summary, all sizes in bytes.">Table <bdi class="">1</bdi></a> for FALCON-512 and SQIsign-I are
+preliminary and not currently registered with
 <a href="https://github.com/multiformats/multicodec/blob/master/table.csv">
-multicodecs</a>. When these signature schemes are formalized by NIST or other 
+multicodecs</a>. When these signature schemes are formalized by NIST or other
 SDOs these values should be updated/registered.
           </p></div>
         </section>
@@ -662,7 +662,7 @@ The <code>type</code> property of the proof <em class="rfc2119">MUST</em> be <co
           </p>
           <p>
 The <code>cryptosuite</code> property of the proof <em class="rfc2119">MUST</em> be one of the values from
-<a href="#CryptosuiteTable" data-matched-text="[[[#CryptosuiteTable]]]" class="table-ref" title="Cryptosuites.">Table <bdi class="">2</bdi></a>, below, or <a href="#SDCryptosuiteTable" data-matched-text="[[[#SDCryptosuiteTable]]]" class="table-ref" title="Cryptosuites.">Table <bdi class="">12</bdi></a> for selective 
+<a href="#CryptosuiteTable" data-matched-text="[[[#CryptosuiteTable]]]" class="table-ref" title="Cryptosuites.">Table <bdi class="">2</bdi></a>, below, or <a href="#SDCryptosuiteTable" data-matched-text="[[[#SDCryptosuiteTable]]]" class="table-ref" title="Cryptosuites.">Table <bdi class="">12</bdi></a> for selective
 disclosure cryptosuites.
           </p>
 
@@ -1108,7 +1108,7 @@ Set <var>cryptosuite</var>.<var>verifyProof</var> to the algorithm in Section
             </ol>
           </li>
           <li>
-If <var>options</var>.<var>cryptosuite</var> is <code>falcon512-rdfc-2024</code> or <code>falcon512-jcs-2024</code> 
+If <var>options</var>.<var>cryptosuite</var> is <code>falcon512-rdfc-2024</code> or <code>falcon512-jcs-2024</code>
 then:
             <ol class="algorithm">
               <li>
@@ -1143,9 +1143,9 @@ Return <var>cryptosuite</var>.
       <section id="MLDSA_Cypthersuites"><div class="header-wrapper"><h3 id="x3-3-ml-dsa-cryptosuites"><bdi class="secno">3.3 </bdi>ML-DSA Cryptosuites</h3><a class="self-link" href="#MLDSA_Cypthersuites" aria-label="Permalink for Section 3.3"></a></div>
         
         <p>
-The Module-Lattice-Based Digital Signature Standard defined in <cite><a data-matched-text="[[[FIPS-204]]]" href="https://csrc.nist.gov/pubs/fips/204/final">Module-Lattice-Based Digital Signature Standard</a></cite> 
-[<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-204" title="Module-Lattice-Based Digital Signature Standard">FIPS-204</a></cite>] defines parameter sets for three different claimed security 
-strengths. The claimed security strengths, private key, public key, and 
+The Module-Lattice-Based Digital Signature Standard defined in <cite><a data-matched-text="[[[FIPS-204]]]" href="https://csrc.nist.gov/pubs/fips/204/final">Module-Lattice-Based Digital Signature Standard</a></cite>
+[<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-204" title="Module-Lattice-Based Digital Signature Standard">FIPS-204</a></cite>] defines parameter sets for three different claimed security
+strengths. The claimed security strengths, private key, public key, and
 signature sizes are summarized in <a href="#MLSummaryTable" data-matched-text="[[[#MLSummaryTable]]]" class="table-ref" title="ML-DSA Signatures Summary, all sizes in bytes.">Table <bdi class="">4</bdi></a>.
         </p>
         <div class="overlarge"><table id="MLSummaryTable" class="data numbered">
@@ -1256,7 +1256,7 @@ Let <var>proofBytes</var> be the result of running the algorithm in Section
 <var>sigFunc</var> passed as parameters.
             </li>
             <li>
-Let <var>proof</var>.<var>proofValue</var> be a <a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">
+Let <var>proof</var>.<var>proofValue</var> be a <a href="https://www.w3.org/TR/cid-1.0/#multibase-0">
 base64-url-encoded Multibase encoding</a> of the <var>proofBytes</var>.
             </li>
             <li>
@@ -1303,7 +1303,7 @@ and <var>verifyFunc</var>, as found in <a href="#MLSuitesTable" data-matched-tex
           </li>
           <li>
 Let <var>proofBytes</var> be the
-<a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">Multibase decoded base64-url
+<a href="https://www.w3.org/TR/cid-1.0/#multibase-0">Multibase decoded base64-url
 value</a> in <var>securedDocument</var>.<var>proof</var>.<var>proofValue</var>.
           </li>
           <li>
@@ -1345,7 +1345,7 @@ Return a <a data-link-type="dfn|abstract-op" href="#dfn-verification-result" cla
       <section id="SLHDSA_Cryptosuites"><div class="header-wrapper"><h3 id="x3-4-slh-dsa-cryptosuites"><bdi class="secno">3.4 </bdi>SLH-DSA Cryptosuites</h3><a class="self-link" href="#SLHDSA_Cryptosuites" aria-label="Permalink for Section 3.4"></a></div>
         
         <p>
-The Stateless Hash-Based Digital Signature Standard defined in <cite><a data-matched-text="[[[FIPS-205]]]" href="https://csrc.nist.gov/pubs/fips/205/final">Stateless Hash-Based Digital Signature Standard</a></cite> 
+The Stateless Hash-Based Digital Signature Standard defined in <cite><a data-matched-text="[[[FIPS-205]]]" href="https://csrc.nist.gov/pubs/fips/205/final">Stateless Hash-Based Digital Signature Standard</a></cite>
 [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-205" title="Stateless Hash-Based Digital Signature Standard">FIPS-205</a></cite>]
 defines parameter sets for three different claimed security strengths,
 optimized for size or speed, and a specified hash function family. This
@@ -1462,7 +1462,7 @@ Let <var>proofBytes</var> be the result of running the algorithm in Section
 <var>sigFunc</var> passed as parameters.
             </li>
             <li>
-Let <var>proof</var>.<var>proofValue</var> be a <a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">
+Let <var>proof</var>.<var>proofValue</var> be a <a href="https://www.w3.org/TR/cid-1.0/#multibase-0">
 base64-url-encoded Multibase encoding</a> of the <var>proofBytes</var>.
             </li>
             <li>
@@ -1509,7 +1509,7 @@ and <var>verifyFunc</var> per <a href="#SLHSuiteTable" data-matched-text="[[[#SL
           </li>
           <li>
 Let <var>proofBytes</var> be the
-<a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">Multibase base64-url-decoded
+<a href="https://www.w3.org/TR/cid-1.0/#multibase-0">Multibase base64-url-decoded
 decoding</a> of <var>securedDocument</var>.<var>proof</var>.<var>proofValue</var>.
           </li>
           <li>
@@ -1552,16 +1552,16 @@ Return a <a data-link-type="dfn|abstract-op" href="#dfn-verification-result" cla
       <section id="Falcon_Cryptosuites"><div class="header-wrapper"><h3 id="x3-5-falcon-cryptosuites"><bdi class="secno">3.5 </bdi>FALCON Cryptosuites</h3><a class="self-link" href="#Falcon_Cryptosuites" aria-label="Permalink for Section 3.5"></a></div>
         
         <div class="note" id="issue-container-generatedID-0"><div class="ednote-title marker" id="h-ednote-0"><span>Editor's note</span></div><p class="">
-The [<cite><a class="bibref" data-link-type="biblio" href="#bib-falcon" title="Fast-Fourier Lattice-based Compact Signatures over NTRU">FALCON</a></cite>] signature algorithm is 
+The [<cite><a class="bibref" data-link-type="biblio" href="#bib-falcon" title="Fast-Fourier Lattice-based Compact Signatures over NTRU">FALCON</a></cite>] signature algorithm is
 undergoing standardization by NIST. The information presented here is based on
-the 
+the
 <a href="https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/round-3-submissions">
 Post-Quantum Cryptography Round 3 Submission</a> information. This section will
 be updated when the NIST specification is issued.
         </p></div>
         <p>
 [<cite><a class="bibref" data-link-type="biblio" href="#bib-falcon" title="Fast-Fourier Lattice-based Compact Signatures over NTRU">FALCON</a></cite>] is a lattice-based signature scheme. It stands for the following acronym:
-<u>FA</u>st Fourier <u>L</u>attice-based <u>CO</u>mpact signatures over 
+<u>FA</u>st Fourier <u>L</u>attice-based <u>CO</u>mpact signatures over
 <u>N</u>TRU. FALCON defines parameter sets for two different claimed security
 strengths. The
 claimed security strengths, private key, public key, and signature sizes are
@@ -1597,7 +1597,7 @@ summarized in <a href="#FalconSummaryTable" data-matched-text="[[[#FalconSummary
         </table></div>
 
         <div class="note" id="issue-container-generatedID-1"><div class="ednote-title marker" id="h-ednote-1"><span>Editor's note</span></div><p class="">
-Private key size information from 
+Private key size information from
 <a href="https://openquantumsafe.org/liboqs/algorithms/sig/falcon.html">
   openquantumsafe.org</a>.
         </p></div>
@@ -1673,7 +1673,7 @@ Let <var>proofBytes</var> be the result of running the algorithm in Section
 <var>sigFunc</var> passed as parameters.
             </li>
             <li>
-Let <var>proof</var>.<var>proofValue</var> be a <a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">
+Let <var>proof</var>.<var>proofValue</var> be a <a href="https://www.w3.org/TR/cid-1.0/#multibase-0">
 base64-url-encoded Multibase encoding</a> of the <var>proofBytes</var>.
             </li>
             <li>
@@ -1720,7 +1720,7 @@ and <var>verifyFunc</var>, as found in <a href="#FALCONSuitesTable" data-matched
           </li>
           <li>
 Let <var>proofBytes</var> be the
-<a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">Multibase decoded base64-url
+<a href="https://www.w3.org/TR/cid-1.0/#multibase-0">Multibase decoded base64-url
 value</a> in <var>securedDocument</var>.<var>proof</var>.<var>proofValue</var>.
           </li>
           <li>
@@ -1762,17 +1762,17 @@ Return a <a data-link-type="dfn|abstract-op" href="#dfn-verification-result" cla
       <section id="SQISign_Cryptosuites"><div class="header-wrapper"><h3 id="x3-6-sqisign-cryptosuites"><bdi class="secno">3.6 </bdi>SQIsign Cryptosuites</h3><a class="self-link" href="#SQISign_Cryptosuites" aria-label="Permalink for Section 3.6"></a></div>
         
         <div class="note" id="issue-container-generatedID-2"><div class="ednote-title marker" id="h-ednote-2"><span>Editor's note</span></div><p class="">
-The <a href="https://sqisign.org/">SQIsign</a> signature algorithm has been 
-submitted to NIST. SQIsign aims for very compact key and signature sizes. 
-The information presented here is based on 
-<a href="https://sqisign.org/spec/sqisign-20250707.pdf">specification v2.01, 
+The <a href="https://sqisign.org/">SQIsign</a> signature algorithm has been
+submitted to NIST. SQIsign aims for very compact key and signature sizes.
+The information presented here is based on
+<a href="https://sqisign.org/spec/sqisign-20250707.pdf">specification v2.01,
 2025-07-07</a>. This section will be updated as appropriate.
         </p></div>
         <p>
-SQIsign relies on the hardness of a computational problem from number theory: 
-computing the endomorphism ring of a supersingular elliptic curve, the 
-endomorphism ring problem. SQIsign defines parameter sets for three different 
-claimed security strengths. The claimed security strengths, private key, public 
+SQIsign relies on the hardness of a computational problem from number theory:
+computing the endomorphism ring of a supersingular elliptic curve, the
+endomorphism ring problem. SQIsign defines parameter sets for three different
+claimed security strengths. The claimed security strengths, private key, public
 key, and signature sizes are summarized in <a href="#SQISummaryTable" data-matched-text="[[[#SQISummaryTable]]]" class="table-ref" title="SQIsign Signatures Summary, all sizes in bytes.">Table <bdi class="">10</bdi></a>.
         </p>
 
@@ -1883,7 +1883,7 @@ Let <var>proofBytes</var> be the result of running the algorithm in Section
 <var>sigFunc</var> passed as parameters.
             </li>
             <li>
-Let <var>proof</var>.<var>proofValue</var> be a <a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">
+Let <var>proof</var>.<var>proofValue</var> be a <a href="https://www.w3.org/TR/cid-1.0/#multibase-0">
 base64-url-encoded Multibase encoding</a> of the <var>proofBytes</var>.
             </li>
             <li>
@@ -1930,7 +1930,7 @@ and <var>verifyFunc</var>, as found in <a href="#SQISuitesTable" data-matched-te
           </li>
           <li>
 Let <var>proofBytes</var> be the
-<a href="https://www.w3.org/TR/vc-data-integrity/#multibase-0">Multibase decoded base64-url
+<a href="https://www.w3.org/TR/cid-1.0/#multibase-0">Multibase decoded base64-url
 value</a> in <var>securedDocument</var>.<var>proof</var>.<var>proofValue</var>.
           </li>
           <li>
@@ -1961,7 +1961,7 @@ Return a <a data-link-type="dfn|abstract-op" href="#dfn-verification-result" cla
                 <dd><var data-type="boolean">verified</var></dd>
                 <dt><a data-link-type="dfn|abstract-op" href="#dfn-verifieddocument" class="internalDFN" id="ref-for-dfn-verifieddocument-7">verifiedDocument</a></dt>
                 <dd>
-<var>unsecuredDocument</var> if <var data-type="boolean">verified</var> is <code>true</code>, otherwise 
+<var>unsecuredDocument</var> if <var data-type="boolean">verified</var> is <code>true</code>, otherwise
 <a href="https://infra.spec.whatwg.org/#nulls">Null</a></dd>
               </dl>
             </li>
@@ -1976,19 +1976,19 @@ This section provides algorithms for a relatively efficient approach to enabling
 <em>selective disclosure</em> of a verifiable credential protected by a quantum
 safe signature algorithm. This approach utilizes a single quantum safe signature
 while sharing additional information concerning the cryptographic hashes of the
-processed <em>claims</em>. This contrasts with the approach taken in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>] 
-selective disclosure where a short signature is given for each processed  
-<em>claim</em> and no additional hashes are shared. This also contrasts with the 
-approach in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-bbs" title="Data Integrity BBS Cryptosuites v1.0">VC-DI-BBS</a></cite>] where the underlying signature scheme supports 
+processed <em>claims</em>. This contrasts with the approach taken in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>]
+selective disclosure where a short signature is given for each processed
+<em>claim</em> and no additional hashes are shared. This also contrasts with the
+approach in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-bbs" title="Data Integrity BBS Cryptosuites v1.0">VC-DI-BBS</a></cite>] where the underlying signature scheme supports
 multiple <em>claims</em> and only a single short signature is shared.
         </p>
         <p class="informative">
 In all the approaches to selective disclosure mentioned above the same core set
-of selective disclosure processing functions contained in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>] are 
-utilized which enables flexibility and efficiency in implementations. 
-The approach taken here is roughly more efficient when a signature is longer 
+of selective disclosure processing functions contained in [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>] are
+utilized which enables flexibility and efficiency in implementations.
+The approach taken here is roughly more efficient when a signature is longer
 than twice the size of the
-corresponding hash for a given security level, e.g., 64 bytes for security 
+corresponding hash for a given security level, e.g., 64 bytes for security
 category 1 or 2.  From <a href="#CryptosuiteTable" data-matched-text="[[[#CryptosuiteTable]]]" class="table-ref" title="Cryptosuites.">Table <bdi class="">2</bdi></a> we can see that this condition is
 true for all signature algorithms currently considered in this specification.
         </p>
@@ -1998,18 +1998,18 @@ moved to an updated version of  [<cite><a class="bibref" data-link-type="biblio"
         </p></div>
         <p class="informative">
 Selective disclosure is enabled by the <em>issuer</em> creating a <em>base</em>
-proof as specified in section <a href="#SD-Base" data-matched-text="[[[#SD-Base]]]" class="sec-ref"><bdi class="secno">3.7.1 </bdi>Create Selective Disclosure Base Proof</a>. The <em>issuer</em> can specify 
-that certain claims are mandatory, i.e., have to be revealed to the 
-<em>verifier</em>. The <em>holder</em> on receiving the issued verifiable  
+proof as specified in section <a href="#SD-Base" data-matched-text="[[[#SD-Base]]]" class="sec-ref"><bdi class="secno">3.7.1 </bdi>Create Selective Disclosure Base Proof</a>. The <em>issuer</em> can specify
+that certain claims are mandatory, i.e., have to be revealed to the
+<em>verifier</em>. The <em>holder</em> on receiving the issued verifiable
 credential with the <em>base</em> proof, uses it to create a related verifiable
 credential whose <em>claims</em> are a selected subset of <em>claims</em> from
-the received document. This is done with the algorithm of section 
-<a href="#SD-Derived" data-matched-text="[[[#SD-Derived]]]" class="sec-ref"><bdi class="secno">3.7.5 </bdi>Add Derived Proof Selective Disclosure</a>. Finally the <em>verifier</em> uses the algorithm of section 
-<a href="#SD-Verify-Derived" data-matched-text="[[[#SD-Verify-Derived]]]" class="sec-ref"><bdi class="secno">3.7.9 </bdi>Verify Derived Proof Selective Disclosure</a> to verify the selectively disclosed verifiable 
+the received document. This is done with the algorithm of section
+<a href="#SD-Derived" data-matched-text="[[[#SD-Derived]]]" class="sec-ref"><bdi class="secno">3.7.5 </bdi>Add Derived Proof Selective Disclosure</a>. Finally the <em>verifier</em> uses the algorithm of section
+<a href="#SD-Verify-Derived" data-matched-text="[[[#SD-Verify-Derived]]]" class="sec-ref"><bdi class="secno">3.7.9 </bdi>Verify Derived Proof Selective Disclosure</a> to verify the selectively disclosed verifiable
 credential.
         </p>
 The selective disclosure cryptosuites defined in this specification are  listed
-in  <a href="#SDCryptosuiteTable" data-matched-text="[[[#SDCryptosuiteTable]]]" class="table-ref" title="Cryptosuites.">Table <bdi class="">12</bdi></a>. Note that all selective disclosure cryptosuites 
+in  <a href="#SDCryptosuiteTable" data-matched-text="[[[#SDCryptosuiteTable]]]" class="table-ref" title="Cryptosuites.">Table <bdi class="">12</bdi></a>. Note that all selective disclosure cryptosuites
 utilize the advanced features of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf-canon" title="RDF Dataset Canonicalization">RDF-CANON</a></cite>].
         <p>
 
@@ -2063,7 +2063,7 @@ Section <a href="#ProofConfigurationAlg" data-matched-text="[[[#ProofConfigurati
 <var>options</var> passed as a parameter.
             </li>
             <li>
-Let <var>transformedData</var> be the result of running the algorithm in Section <a href="#base-proof-transformation-selective-disclosure" class="sec-ref"><bdi class="secno">3.7.2 </bdi>Base Proof Transformation Selective Disclosure</a> with 
+Let <var>transformedData</var> be the result of running the algorithm in Section <a href="#base-proof-transformation-selective-disclosure" class="sec-ref"><bdi class="secno">3.7.2 </bdi>Base Proof Transformation Selective Disclosure</a> with
 <var>unsecuredDocument</var>,
 <var>proofConfig</var>, and <var>options</var> passed as parameters.
             </li>
@@ -2117,16 +2117,16 @@ document</em> is produced as output. Whenever this algorithm encodes strings, it
 Initialize <var>hmac</var> to an HMAC API using a locally generated and exportable HMAC
 key. The HMAC uses the same hash algorithm used in the signature algorithm,
 which is detected via the <var>verificationMethod</var> provided to the
-function, i.e., SHA-256 for a security category 1 or 2 signature algorithm. 
+function, i.e., SHA-256 for a security category 1 or 2 signature algorithm.
 Per the recommendations of
-[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2104" title="HMAC: Keyed-Hashing for Message Authentication">RFC2104</a></cite>], the HMAC key <em class="rfc2119">MUST</em> be the same length as the digest size; 
+[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2104" title="HMAC: Keyed-Hashing for Message Authentication">RFC2104</a></cite>], the HMAC key <em class="rfc2119">MUST</em> be the same length as the digest size;
 for SHA-256,
 this is 256 bits or 32 bytes.
             </li>
             <li>
 Initialize <var>labelMapFactoryFunction</var> to the result of calling the algorithm of
 <a href="https://www.w3.org/TR/vc-di-ecdsa/#createhmacidlabelmapfunction">
-Section 3.4.4 createHmacIdLabelMapFunction</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>], 
+Section 3.4.4 createHmacIdLabelMapFunction</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>],
 passing <var>hmac</var>.
             </li>
             <li>
@@ -2183,13 +2183,13 @@ as an object is produced as output.
 Initialize <var>proofHash</var> to the result of calling the RDF Dataset Canonicalization
 algorithm [<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf-canon" title="RDF Dataset Canonicalization">RDF-CANON</a></cite>] on <var>canonicalProofConfig</var> and then cryptographically
 hashing the result using the same hash that is used by the signature algorithm,
-i.e., SHA-256 for a security category 1 or 2 algorithms. Note: This step can 
+i.e., SHA-256 for a security category 1 or 2 algorithms. Note: This step can
 be performed in parallel;
 it only needs to be completed before this algorithm terminates as the result is
 part of the return value.
             </li>
             <li>
-Initialize <var>mandatoryHash</var> to the result of calling the the algorithm in 
+Initialize <var>mandatoryHash</var> to the result of calling the the algorithm in
 <a href="https://www.w3.org/TR/vc-di-ecdsa/#hashmandatorynquads">Section 3.3.17
 hashMandatoryNQuads</a> of the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>] specification,
 passing <var>transformedDocument</var>.<var>mandatory</var>.
@@ -2200,14 +2200,14 @@ add <var>proofHash</var> as <code>proofHash</code> and <var>mandatoryHash</var> 
 object.
             </li>
             <li>
-Initialize <var>salts</var> as an empty array. For each <var>nonMandatory</var> item in the 
-<var>transformedDocument</var> create a cryptographically secure random number of 
+Initialize <var>salts</var> as an empty array. For each <var>nonMandatory</var> item in the
+<var>transformedDocument</var> create a cryptographically secure random number of
 byte length half the size of the hash length, e.g., for security category 1 or 2
 using SHA-256 the length of each salt would be 16 bytes.
             </li>
             <li>
-Initialize <var>saltedHashes</var> as an empty array. For each <var>nonMandatory</var> item in the 
-<var>transformedDocument</var> compute the appropriate hash (SHA-256 for security 
+Initialize <var>saltedHashes</var> as an empty array. For each <var>nonMandatory</var> item in the
+<var>transformedDocument</var> compute the appropriate hash (SHA-256 for security
 category 1 or 2 signature algorithms) over the concatenation of each <var>salt</var> and
 its corresponding <var>nonMandatory</var> item. Add this hash value to the <var>saltedHashes</var>
 array.
@@ -2221,7 +2221,7 @@ Return <var>hashData</var> as <em>hash data</em>.
             </li>
           </ol>
           <div class="note" id="issue-container-generatedID-4"><div class="ednote-title marker" id="h-ednote-4"><span>Editor's note</span></div><p class="">
-To do: provide background on <em>cryptographic random number generation</em> in the 
+To do: provide background on <em>cryptographic random number generation</em> in the
 security considerations section. For example cite appropriate references such as
 NIST SP-800-90A,B,C documents and/or BSI AIS 20 and AIS 31 documents.
           </p></div>
@@ -2232,7 +2232,7 @@ NIST SP-800-90A,B,C documents and/or BSI AIS 20 and AIS 31 documents.
 
           <p>
 The following algorithm specifies how to create a base proof; called by an
-issuer of an Quantum-Safe-SD-protected Verifiable Credential. 
+issuer of an Quantum-Safe-SD-protected Verifiable Credential.
 The base proof is to be
 given only to the holder, who is responsible for generating a derived proof from
 it, exposing only selectively disclosed details in the proof to a verifier. This
@@ -2251,16 +2251,16 @@ represented as series of bytes is produced as output.
 
           <ol class="algorithm">
             <li>
-Initialize <var>proofHash</var>, <var>mandatoryPointers</var>, <var>mandatoryHash</var>, <var>salts</var>, 
+Initialize <var>proofHash</var>, <var>mandatoryPointers</var>, <var>mandatoryHash</var>, <var>salts</var>,
 <var>saltedHashes</var>,
 and <var>hmacKey</var> to the values associated with their property names
 <var>hashData</var>.
             </li>
             <li>
-Initialize <var>toSign</var> the hash of the concatenation of <var>proofHash</var>, 
+Initialize <var>toSign</var> the hash of the concatenation of <var>proofHash</var>,
 <var>mandatoryHash</var>, <var>salts</var>,
 and <var>saltedHashes</var> where the order of the concatenation <em class="rfc2119">MUST</em> be followed. The
-cryptographic hash algorithm is that specified for signature algorithm in 
+cryptographic hash algorithm is that specified for signature algorithm in
 <a href="#HashSigTable" data-matched-text="[[[#HashSigTable]]]" class="table-ref" title="Hashes for Signatures.">Table <bdi class="">3</bdi></a>, e.g., SHA-256 for a security category 1 or 2 algorithms.
             </li>
             <li>
@@ -2268,7 +2268,7 @@ Initialize <var>signature</var> to the result of digitally signing <var>toSign</
 private key associated with the base proof verification method.
             </li>
             <li>
-Initialize a byte array, <var>proofValue</var>, that starts with the Quantum-Safe-SD 
+Initialize a byte array, <var>proofValue</var>, that starts with the Quantum-Safe-SD
 base proof header bytes 0xd9, 0x5d, and 0x10.
             </li>
             <li>
@@ -2293,7 +2293,7 @@ Return <var>baseProof</var> as <em>base proof</em>.
           </ol>
 
           <div class="note" id="issue-container-generatedID-5"><div class="ednote-title marker" id="h-ednote-5"><span>Editor's note</span></div><p class="">
-The Quantum-Safe-SD base proof header bytes 0xd9, 0x5d, and 0x10 were chosen 
+The Quantum-Safe-SD base proof header bytes 0xd9, 0x5d, and 0x10 were chosen
 to not collide with any of the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>] or [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-bbs" title="Data Integrity BBS Cryptosuites v1.0">VC-DI-BBS</a></cite>] values. They are
 currently tentative.
           </p></div>
@@ -2315,7 +2315,7 @@ value, represented as an object, is produced as output.
           <ol>
             <li>
 Initialize <var>signature</var>, <var>salts</var>, <var>saltedHashes</var>, <var>labelMap</var>,
-<var>mandatoryIndexes</var>, <var>selectiveIndexes</var> and <var>revealDocument</var> to the values 
+<var>mandatoryIndexes</var>, <var>selectiveIndexes</var> and <var>revealDocument</var> to the values
 associated with their
 property names in the object returned when calling the algorithm in
 Section <a href="#Derived-Create-Disclosure-Data" data-matched-text="[[[#Derived-Create-Disclosure-Data]]]" class="sec-ref"><bdi class="secno">3.7.6 </bdi>Derived Proof: Create Disclosure Data</a>, passing the <var>document</var>, <var>proof</var>,
@@ -2369,7 +2369,7 @@ algorithm used in the signature algorithm, i.e., SHA-256 for a security category
             <li>
 Initialize <var>labelMapFactoryFunction</var> to the result of calling the algorithm of
 <a href="https://www.w3.org/TR/vc-di-ecdsa/#createhmacidlabelmapfunction">
-Section 3.4.4 createHmacIdLabelMapFunction</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>], 
+Section 3.4.4 createHmacIdLabelMapFunction</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>],
 passing <var>hmac</var>.
             </li>
             <li>
@@ -2384,7 +2384,7 @@ and value of <var>combinedPointers</var>.
             </li>
             <li>
 Initialize <var>groups</var> and <var>labelMap</var> to their associated values in the result
-of calling the algorithm in 
+of calling the algorithm in
 <a href="https://www.w3.org/TR/vc-di-ecdsa/#canonicalizeandgroup">Section 3.3.16
 canonicalizeAndGroup</a> of the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>] specification,
 passing <var>document</var>,
@@ -2402,7 +2402,7 @@ Initialize <var>mandatoryIndexes</var> to an empty array.
             </li>
             <li>
 For each <var>absoluteIndex</var> in the keys in <var>groups</var>.<var>combined</var>.<var>matching</var>, convert
-the absolute index of any <em>mandatory</em> N-Quad to an index relative to the 
+the absolute index of any <em>mandatory</em> N-Quad to an index relative to the
 combined output that is to be revealed:
               <ol class="algorithm">
                 <li>
@@ -2422,7 +2422,7 @@ Initialize <var>selectiveIndexes</var> to an empty array.
             </li>
             <li>
 For each <var>absoluteIndex</var> in the keys in <var>groups</var>.<var>combined</var>.<var>matching</var>, convert
-the absolute index of any <em>selective</em> N-Quad to an index relative to the 
+the absolute index of any <em>selective</em> N-Quad to an index relative to the
 combined output that is to be revealed:
               <ol class="algorithm">
                 <li>
@@ -2435,7 +2435,7 @@ Increment <var>relativeIndex</var>.
               </ol>
             </li>
             <li>
-Initialize <var>revealDocument</var> to the result of the calling the algorithm in 
+Initialize <var>revealDocument</var> to the result of the calling the algorithm in
 <a href="https://www.w3.org/TR/vc-di-ecdsa/#selectjsonld">3.4.13 selectJsonLd
 </a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>],
 passing <var>document</var>, and <var>combinedPointers</var> as <var>pointers</var>.
@@ -2464,7 +2464,7 @@ value associated with <var>inputLabel</var> as a key in <var>labelMap</var> as t
             </li>
             <li>
 Return an object with properties matching <var>signature</var>, <var>salts</var>,
-<var>saltedHashes</var>, <code>verifierLabelMap</code> for <var>labelMap</var>, <var>mandatoryIndexes</var>, 
+<var>saltedHashes</var>, <code>verifierLabelMap</code> for <var>labelMap</var>, <var>mandatoryIndexes</var>,
 <var>selectiveIndexes</var>, and <var>revealDocument</var>.
             </li>
           </ol>
@@ -2500,7 +2500,7 @@ convey an error type of
             </li>
             <li>
 Initialize <var>components</var> to an array that is the result of CBOR-decoding the
-bytes that follow the three-byte Quantum-Safe-SD base proof header. Confirm that 
+bytes that follow the three-byte Quantum-Safe-SD base proof header. Confirm that
 the result is an array of five elements.
             </li>
             <li>
@@ -2516,22 +2516,22 @@ respectively.
           
 
           <p>
-The following algorithm serializes a Quantum-Safe-SD derived proof value. 
-The required inputs are a base signature (<var>signature</var>), an array of salts 
-(<var>salts</var>), an array of salted  hashes (<var>saltedHashes</var>), a label map 
-(<var>labelMap</var>), an array of mandatory indexes (<var>mandatoryIndexes</var>). and an array 
-of selective indexes (<var>selectiveIndexes</var>). A single <em>derived proof</em> 
+The following algorithm serializes a Quantum-Safe-SD derived proof value.
+The required inputs are a base signature (<var>signature</var>), an array of salts
+(<var>salts</var>), an array of salted  hashes (<var>saltedHashes</var>), a label map
+(<var>labelMap</var>), an array of mandatory indexes (<var>mandatoryIndexes</var>). and an array
+of selective indexes (<var>selectiveIndexes</var>). A single <em>derived proof</em>
 value, serialized as a byte string, is produced as output.
           </p>
 
           <ol class="algorithm">
             <li>
 Initialize <var>compressedLabelMap</var> to the result of calling the algorithm in
-<a href="https://www.w3.org/TR/vc-di-ecdsa/#compresslabelmap">Section 3.5.5 
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#compresslabelmap">Section 3.5.5
 compressLabelMap</a>  of  [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>], passing <var>labelMap</var> as the parameter.
             </li>
             <li>
-Initialize a byte array, <var>proofValue</var>, that starts with the Quantum-Safe-SD 
+Initialize a byte array, <var>proofValue</var>, that starts with the Quantum-Safe-SD
 disclosure proof header bytes <code>0xd9</code>, <code>0x5d</code>, and <code>0x11</code>.
             </li>
             <li>
@@ -2553,8 +2553,8 @@ starting with "<code>u</code>" and ending with the base64url-no-pad-encoded valu
             </li>
           </ol>
           <div class="note" id="issue-container-generatedID-6"><div class="ednote-title marker" id="h-ednote-6"><span>Editor's note</span></div><p class="">
-The Quantum-Safe-SD disclosure proof header bytes <code>0xd9</code>, <code>0x5d</code>, and <code>0x11</code> 
-were chosen to not conflict with values used by [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>] and 
+The Quantum-Safe-SD disclosure proof header bytes <code>0xd9</code>, <code>0x5d</code>, and <code>0x11</code>
+were chosen to not conflict with values used by [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>] and
 [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-bbs" title="Data Integrity BBS Cryptosuites v1.0">VC-DI-BBS</a></cite>] and are tentative.
           </p></div>
         </section>
@@ -2576,8 +2576,8 @@ Let <var>unsecuredDocument</var> be a copy of <var>document</var> with the <code
             </li>
             <li>
 Initialize <var>signature</var>, <var>proofHash</var>, <var>salts</var>, <var>saltedHashes</var>,
-<var>nonMandatory</var>, <var>mandatoryHash</var>, and <var>selectiveIndexes</var> to the values associated 
-with their property names in the object returned when calling the algorithm in 
+<var>nonMandatory</var>, <var>mandatoryHash</var>, and <var>selectiveIndexes</var> to the values associated
+with their property names in the object returned when calling the algorithm in
 Section <a href="#createverifydata" data-matched-text="[[[#createverifydata]]]" class="sec-ref"><bdi class="secno">3.7.10 </bdi>Create Verify Data</a>, passing the <var>document</var>, <var>proof</var>, and any
 custom JSON-LD API options, such as a document loader.
             </li>
@@ -2590,13 +2590,13 @@ the salted hashes count.
             </li>
             <li>
 The values of the elements of the <var>selectiveIndexes</var> array must be between 0 and
-the length of the <var>salts</var> array minus one. If not, 
+the length of the <var>salts</var> array minus one. If not,
 an error <em class="rfc2119">MUST</em> be raised and <em class="rfc2119">SHOULD</em> convey an error type of
 <a href="https://www.w3.org/TR/vc-data-integrity/#PROOF_VERIFICATION_ERROR">PROOF_VERIFICATION_ERROR</a>,
 indicating that the selective indexes are out of bounds.
             </li>
             <li>
-Initialize <var>toVerify</var> to the byte  concatenation of the values: <var>proofHash</var>, 
+Initialize <var>toVerify</var> to the byte  concatenation of the values: <var>proofHash</var>,
 <var>mandatoryHash</var>, <var>salts</var>, and <var>saltedHashes</var> in that order with the array values
 themselves concatenated together.
             </li>
@@ -2605,22 +2605,22 @@ Initialize <var>verified</var> to true.
             </li>
             <li>
 Initialize <var>verificationCheck</var> be the result of applying the verification
-algorithm of the appropriate Quantum Safe signature algorithms as indicated by 
+algorithm of the appropriate Quantum Safe signature algorithms as indicated by
 the "cryptosuite" property and <a href="#SDCryptosuiteTable" data-matched-text="[[[#SDCryptosuiteTable]]]" class="table-ref" title="Cryptosuites.">Table <bdi class="">12</bdi></a>,
-with <var>toVerify</var> as the data to be verified against the <var>signature</var>. 
+with <var>toVerify</var> as the data to be verified against the <var>signature</var>.
 If <var>verificationCheck</var> is
 <code>false</code>, set <var>verified</var> to false.
             </li>
             <li>
-For every entry (<var>nq</var>, <var>index</var>) in <var>nonMandatory</var>, verify the salted hash 
+For every entry (<var>nq</var>, <var>index</var>) in <var>nonMandatory</var>, verify the salted hash
 for every selectively disclosed (non-mandatory) statement:
               <ol class="algorithm">
                 <li>
-Let <var>computedHash</var> be the  hash of the concatenation of 
+Let <var>computedHash</var> be the  hash of the concatenation of
 <var>salts</var>[<var>selectiveIndexes</var>[index]] and <var>nq</var>.
                 </li>
                 <li>
-Initialize <var>verificationCheck</var> to the result of comparing the <var>computedHash</var> 
+Initialize <var>verificationCheck</var> to the result of comparing the <var>computedHash</var>
 with the value of  <var>saltedHashes</var>[<var>selectedIndexes</var>[index]].
 
                 </li>
@@ -2661,24 +2661,24 @@ fields: "signature", "proofHash", "salts", "saltedHashes", "nonMandatory",
             <li>
 Initialize <var>proofHash</var> to the result of perform RDF Dataset Canonicalization
 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf-canon" title="RDF Dataset Canonicalization">RDF-CANON</a></cite>] on the proof options. The hash used is the same as the one used in
-the signature algorithm, i.e., SHA-256 for security category 1 or 2 algorithms. 
+the signature algorithm, i.e., SHA-256 for security category 1 or 2 algorithms.
 Note: This step can be
 performed in parallel; it only needs to be completed before this algorithm needs
 to use the <var>proofHash</var> value.
             </li>
             <li>
-Initialize <var>signature</var>, <var>salts</var>, <var>saltedHashes</var>, <var>labelMap</var>, <var>mandatoryIndexes</var>, 
+Initialize <var>signature</var>, <var>salts</var>, <var>saltedHashes</var>, <var>labelMap</var>, <var>mandatoryIndexes</var>,
 and <var>selectiveIndexes</var> to the values associated with their property names in the
 object returned when calling the algorithm in Section
 <a href="#parsederivedproofvalue" data-matched-text="[[[#parsederivedproofvalue]]]" class="sec-ref"><bdi class="secno">3.7.11 </bdi>Parse Derived Proof Value</a>, passing <var>proofValue</var> from <var>proof</var>.
             </li>
             <li>
 Initialize <var>labelMapFactoryFunction</var> to the result of calling the algorithm of
-<a href="https://www.w3.org/TR/vc-di-ecdsa/#createlabelmapfunction">Section 
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#createlabelmapfunction">Section
   3.4.3 createLabelMapFunction</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>].
             </li>
             <li>
-Initialize <var>nquads</var> to the result of calling the algorithm of 
+Initialize <var>nquads</var> to the result of calling the algorithm of
 <a href="https://www.w3.org/TR/vc-di-ecdsa/#labelreplacementcanonicalizejsonld">
 Section 3.4.2 labelReplacementCanonicalizeJsonLd</a>  of  [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>],
 passing <var>document</var>,
@@ -2706,12 +2706,12 @@ Otherwise, add <var>nq</var> to <var>nonMandatory</var>.
             </li>
             <li>
 Initialize <var>mandatoryHash</var> to the result of calling the algorithm of
-<a href="https://www.w3.org/TR/vc-di-ecdsa/#hashmandatorynquads">Section 3.4.17 
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#hashmandatorynquads">Section 3.4.17
 hashMandatoryNQuads</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>], passing <var>mandatory</var>.
             </li>
             <li>
 Return an object with properties matching <var>signature</var>, <var>proofHash</var>,
-<var>salts</var>, <var>saltedHashes</var>, <var>nonMandatory</var>, <var>mandatoryHash</var>, and 
+<var>salts</var>, <var>saltedHashes</var>, <var>nonMandatory</var>, <var>mandatoryHash</var>, and
 <var>selectiveIndexes</var>.
             </li>
           </ol>
@@ -2748,20 +2748,20 @@ and <em class="rfc2119">SHOULD</em> convey an error type of
             </li>
             <li>
 Initialize <var>components</var> to an array that is the result of CBOR-decoding the bytes
-that follow the three-byte Quantum-Safe-SD disclosure proof header. If the 
-result is not an array of the following six elements — 
-a byte array of length corresponding to the signature  size; 
+that follow the three-byte Quantum-Safe-SD disclosure proof header. If the
+result is not an array of the following six elements —
+a byte array of length corresponding to the signature  size;
 an array of byte arrays, each of length appropriate to the <em>salt size</em>;
-an array of byte arrays, each of length corresponding to the hash size; 
-a map of integers to byte arrays, each of length 32; 
+an array of byte arrays, each of length corresponding to the hash size;
+a map of integers to byte arrays, each of length 32;
 an array of integers; and another array of integers — an error <em class="rfc2119">MUST</em> be raised
 and <em class="rfc2119">SHOULD</em> convey an error type of
 <a href="https://www.w3.org/TR/vc-data-integrity/#PROOF_VERIFICATION_ERROR">PROOF_VERIFICATION_ERROR</a>.
             </li>
             <li>
 Replace the fourth element in <var>components</var> using the result of calling the
-algorithm in 
-<a href="https://www.w3.org/TR/vc-di-ecdsa/#decompresslabelmap">Section 3.5.6 
+algorithm in
+<a href="https://www.w3.org/TR/vc-di-ecdsa/#decompresslabelmap">Section 3.5.6
 decompressLabelMap</a> of [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>], passing the existing
 fourth element of <var>components</var> as <var>compressedLabelMap</var>.
             </li>
@@ -2772,12 +2772,12 @@ elements, using the names "signature", "salts", "saltedHashes",
             </li>
           </ol>
           <div class="note" id="issue-container-generatedID-7"><div class="ednote-title marker" id="h-ednote-7"><span>Editor's note</span></div><p class="">
-Should we also mention additional checks on the values of <var>salts</var>, 
+Should we also mention additional checks on the values of <var>salts</var>,
 <var>saltedHashes</var>, <var>mandatoryIndexes</var>, and <var>selectiveIndexes</var>? In particular, the
 length of the the <var>salts</var> and <var>saltedHashes</var> must be the same. The all elements
 of the <var>mandatoryIndexes</var> and <var>selectiveIndexes</var> should be in the range of 0 to
-the length of <var>salts</var>. There should not be repeated items in the 
-<var>mandatoryIndexes</var> and <var>selectiveIndexesArrays</var>. Also the elements of each of 
+the length of <var>salts</var>. There should not be repeated items in the
+<var>mandatoryIndexes</var> and <var>selectiveIndexesArrays</var>. Also the elements of each of
 these arrays should be increasing order. Note that the minimal additional checks
 appear in <a href="#SD-Verify-Derived" data-matched-text="[[[#SD-Verify-Derived]]]" class="sec-ref"><bdi class="secno">3.7.9 </bdi>Verify Derived Proof Selective Disclosure</a>.
           </p></div>
@@ -2804,9 +2804,9 @@ cryptosuites defined here.
       </p>
       <section id="SigSecProps"><div class="header-wrapper"><h3 id="x4-1-signature-security-properties"><bdi class="secno">4.1 </bdi>Signature Security Properties</h3><a class="self-link" href="#SigSecProps" aria-label="Permalink for Section 4.1"></a></div>
         
-        <p>All signature suites in this specification are designed to satisfy 
-either <em>existential unforgeability under chosen-message attacks</em> 
-(EUF-CMA) or <em>strong unforgeability under chosen message attacks</em> 
+        <p>All signature suites in this specification are designed to satisfy
+either <em>existential unforgeability under chosen-message attacks</em>
+(EUF-CMA) or <em>strong unforgeability under chosen message attacks</em>
 (SUF-CMA) or both as defined below.
         </p>
         <p>
@@ -3064,34 +3064,34 @@ have been circumvented with SUF-CMA security over EUF-CMA security.
           <p>
 Besides EUF-CMA and SUF-CMA there are additional properties a digital signature
 scheme can possess that may be essential for overall software or protocol
-security depending on the application. These are discussed in [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>], which is 
-also referenced by [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-204" title="Module-Lattice-Based Digital Signature Standard">FIPS-204</a></cite>] and [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-205" title="Stateless Hash-Based Digital Signature Standard">FIPS-205</a></cite>]. These additional properties 
-are defined in  [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>] as: 
-<em>exclusive ownership</em>, <em>message-bound signatures</em>, and 
+security depending on the application. These are discussed in [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>], which is
+also referenced by [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-204" title="Module-Lattice-Based Digital Signature Standard">FIPS-204</a></cite>] and [<cite><a class="bibref" data-link-type="biblio" href="#bib-fips-205" title="Stateless Hash-Based Digital Signature Standard">FIPS-205</a></cite>]. These additional properties
+are defined in  [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>] as:
+<em>exclusive ownership</em>, <em>message-bound signatures</em>, and
 <em>non re-signability</em>.
           </p>
           <p>
-<strong>Exclusive Ownership (EO)</strong>: the property that a signature only 
-verifies under a single public key. Without this property a system could be 
-vunerable to an attack that allows constructing another key pair under which a 
+<strong>Exclusive Ownership (EO)</strong>: the property that a signature only
+verifies under a single public key. Without this property a system could be
+vunerable to an attack that allows constructing another key pair under which a
 given signature verifies, but never breaks the EUF-CMA property. Such an attack
 is documented in both [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>] and in [<cite><a class="bibref" data-link-type="biblio" href="#bib-provable_ed25519" title="The Provable Security of Ed25519: Theory and Practice">Provable_Ed25519</a></cite>] where it is called a
 "key substitution attack".
           </p>
           <p>
-<strong>Message-Bound Signatures (MBS)</strong>: the property that a signature 
+<strong>Message-Bound Signatures (MBS)</strong>: the property that a signature
 is only valid for a unique message. This property is key for data integrity and
-all signature schemes chosen here currently support it. From [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>]: 
-"A possible cause can be the presence of weak keys that verify multiple or even 
-all messages. The absence of this property can lead to problems in protocols 
-that depend on uniqueness properties in the presence of adversarially chosen 
+all signature schemes chosen here currently support it. From [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>]:
+"A possible cause can be the presence of weak keys that verify multiple or even
+all messages. The absence of this property can lead to problems in protocols
+that depend on uniqueness properties in the presence of adversarially chosen
 keys."
           </p>
           <p>
-<strong>Non Re-signability (NR)</strong>: meaning that one cannot produce a signature 
+<strong>Non Re-signability (NR)</strong>: meaning that one cannot produce a signature
 under another key given a signature for some unknown message m, i.e., that an
-adversary cannot produce a legitimate signature verifying under its public key 
-for a message it does not know. See [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>] for an example of a system that 
+adversary cannot produce a legitimate signature verifying under its public key
+for a message it does not know. See [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>] for an example of a system that
 could be vulnerable without this property.
           </p>
           <p>
@@ -3146,7 +3146,7 @@ signature schemes in this specification.
         </tbody>
         </table></div>
         <div class="note" role="note" id="issue-container-generatedID-8"><div class="note-title marker" id="h-note"><span>Note</span></div><p class="">
-Note<sup>*</sup>: This is based on the "third round FALCON" currently used hear 
+Note<sup>*</sup>: This is based on the "third round FALCON" currently used hear
 and according to [<cite><a class="bibref" data-link-type="biblio" href="#bib-buff" title="BUFFing signature schemes beyond unforgeability and the case of post-quantum signatures">BUFF</a></cite>] will be updated when FIPS-206 is released.
         </p></div>
       </section>
@@ -3182,7 +3182,7 @@ signature mechanism.
       <div class="note" id="issue-container-generatedID-9"><div class="ednote-title marker" id="h-ednote-8"><span>Editor's note</span></div><p class="">
 A relatively efficient selective, but not unlinkable, disclosure
 mechanism can be created by combining the selective disclosure functions
-defined in <cite><a data-matched-text="[[[?VC-DI-ECDSA]]]" href="https://www.w3.org/TR/vc-di-ecdsa/">Data Integrity ECDSA Cryptosuites v1.0</a></cite> with the "salted hash" approach of 
+defined in <cite><a data-matched-text="[[[?VC-DI-ECDSA]]]" href="https://www.w3.org/TR/vc-di-ecdsa/">Data Integrity ECDSA Cryptosuites v1.0</a></cite> with the "salted hash" approach of
 <a href="https://www.rfc-editor.org/rfc/rfc9901.html">SD-JWT</a>, if
 there is sufficient interest.
       </p></div>
@@ -4000,7 +4000,7 @@ examples and can be quite lengthy for some quantum safe signature algorithms.
       <section id="PQC-SD-TV"><div class="header-wrapper"><h3 id="a-6-quantum-safe-selective-disclosure"><bdi class="secno">A.6 </bdi>Quantum Safe Selective Disclosure</h3><a class="self-link" href="#PQC-SD-TV" aria-label="Permalink for Appendix A.6"></a></div>
         
         <p>
-The Quantum-Safe-SD utilize the same set of common inputs described in 
+The Quantum-Safe-SD utilize the same set of common inputs described in
 <a href="#test-vector-common-inputs" data-matched-text="[[[#test-vector-common-inputs]]]" class="sec-ref"><bdi class="secno">A.1 </bdi>Test Vector Common Inputs</a>, this includes the <em>unsigned document</em>,
 <em>proof options</em> and the example keys for ML-DSA-44, SLH-DSA-SHA2-128s,
 and FALCON-512.
@@ -4009,8 +4009,8 @@ and FALCON-512.
         <section id="selective-disclosure-common-inputs"><div class="header-wrapper"><h4 id="a-6-1-selective-disclosure-common-inputs"><bdi class="secno">A.6.1 </bdi>Selective Disclosure Common Inputs</h4><a class="self-link" href="#selective-disclosure-common-inputs" aria-label="Permalink for Appendix A.6.1"></a></div>
           
           <p>
-For the base proof transformation of Section 
-<a href="#base-proof-transformation-selective-disclosure" data-matched-text="[[[#base-proof-transformation-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.2 </bdi>Base Proof Transformation Selective Disclosure</a>, the example mandatory 
+For the base proof transformation of Section
+<a href="#base-proof-transformation-selective-disclosure" data-matched-text="[[[#base-proof-transformation-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.2 </bdi>Base Proof Transformation Selective Disclosure</a>, the example mandatory
 information specified by the issuer is given via an array
 of JSON pointers as shown below.
           </p>
@@ -4020,8 +4020,8 @@ of JSON pointers as shown below.
   </div> <pre class="nohighlight">["/issuer"]</pre>
       </div>
           <p>
-As part of the base proof transformation of Section 
-<a href="#base-proof-transformation-selective-disclosure" data-matched-text="[[[#base-proof-transformation-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.2 </bdi>Base Proof Transformation Selective Disclosure</a> an HMAC key is required. 
+As part of the base proof transformation of Section
+<a href="#base-proof-transformation-selective-disclosure" data-matched-text="[[[#base-proof-transformation-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.2 </bdi>Base Proof Transformation Selective Disclosure</a> an HMAC key is required.
 We use the following HMAC key for all selective disclosure test vectors.
 
           </p>
@@ -4034,8 +4034,8 @@ We use the following HMAC key for all selective disclosure test vectors.
       </div>
 
           <p>
-To create the derived proof in <a href="#SD-Derived" data-matched-text="[[[#SD-Derived]]]" class="sec-ref"><bdi class="secno">3.7.5 </bdi>Add Derived Proof Selective Disclosure</a>, the holder indicate what, if 
-anything else, they wish to reveal to the verifier by specifying JSON pointers 
+To create the derived proof in <a href="#SD-Derived" data-matched-text="[[[#SD-Derived]]]" class="sec-ref"><bdi class="secno">3.7.5 </bdi>Add Derived Proof Selective Disclosure</a>, the holder indicate what, if
+anything else, they wish to reveal to the verifier by specifying JSON pointers
 for selective disclosure. The example selective pointers is shown below:
           </p>
           <div class="example" id="example-selective-disclosure-pointers">
@@ -4048,10 +4048,10 @@ for selective disclosure. The example selective pointers is shown below:
         <section id="sd-base-common-outputs"><div class="header-wrapper"><h4 id="a-6-2-sd-base-common-outputs"><bdi class="secno">A.6.2 </bdi>SD Base Common Outputs</h4><a class="self-link" href="#sd-base-common-outputs" aria-label="Permalink for Appendix A.6.2"></a></div>
           
           <p>
-The result of transform step, 
-<a href="#base-proof-transformation-selective-disclosure" data-matched-text="[[[#base-proof-transformation-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.2 </bdi>Base Proof Transformation Selective Disclosure</a>, from <a href="#SD-Base" data-matched-text="[[[#SD-Base]]]" class="sec-ref"><bdi class="secno">3.7.1 </bdi>Create Selective Disclosure Base Proof</a> 
+The result of transform step,
+<a href="#base-proof-transformation-selective-disclosure" data-matched-text="[[[#base-proof-transformation-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.2 </bdi>Base Proof Transformation Selective Disclosure</a>, from <a href="#SD-Base" data-matched-text="[[[#SD-Base]]]" class="sec-ref"><bdi class="secno">3.7.1 </bdi>Create Selective Disclosure Base Proof</a>
 depend on the document, HMAC key, and mandatory pointers but not the specific
-signature algorithm. They result contains appropriately modified maps of 
+signature algorithm. They result contains appropriately modified maps of
 mandatory and non-mandatory <em>claims</em> in N-Quad format as shown below.
           </p>
           <div class="example" id="example-sd-base-transform">
@@ -4172,10 +4172,10 @@ mandatory and non-mandatory <em>claims</em> in N-Quad format as shown below.
       </div>
 
           <p>
-The hashing step, 
+The hashing step,
 <a href="#base-proof-hashing-selective-disclosure" data-matched-text="[[[#base-proof-hashing-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.3 </bdi>Base Proof Hashing Selective Disclosure</a>, from <a href="#SD-Base" data-matched-text="[[[#SD-Base]]]" class="sec-ref"><bdi class="secno">3.7.1 </bdi>Create Selective Disclosure Base Proof</a> consists of
-a signature/cryptosuite specific part <em>proofHash</em> and a cryptosuite 
-independent part that includes the <em>mandatoryHash</em>, <em>salts</em>, and 
+a signature/cryptosuite specific part <em>proofHash</em> and a cryptosuite
+independent part that includes the <em>mandatoryHash</em>, <em>salts</em>, and
 <em>saltedHashes</em> as shown below.
           </p>
           <div class="example" id="example-sd-base-hashing-common">
@@ -4239,7 +4239,7 @@ credential, e.g., leaking data on undisclosed <em>claims</em>.
         <section id="sd-base-signature-specific-outputs"><div class="header-wrapper"><h4 id="a-6-3-sd-base-signature-specific-outputs"><bdi class="secno">A.6.3 </bdi>SD Base Signature Specific Outputs</h4><a class="self-link" href="#sd-base-signature-specific-outputs" aria-label="Permalink for Appendix A.6.3"></a></div>
           
           <p>
-The cryptosuite specific part of the hashing step, 
+The cryptosuite specific part of the hashing step,
 <a href="#base-proof-hashing-selective-disclosure" data-matched-text="[[[#base-proof-hashing-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.3 </bdi>Base Proof Hashing Selective Disclosure</a>, from <a href="#SD-Base" data-matched-text="[[[#SD-Base]]]" class="sec-ref"><bdi class="secno">3.7.1 </bdi>Create Selective Disclosure Base Proof</a> consists of
 a  <em>proofHash</em>. These are summarized  below.
           </p>
@@ -4261,8 +4261,8 @@ a  <em>proofHash</em>. These are summarized  below.
 
           <p>
 The results of <a href="#base-proof-serialization-selective-disclosure" data-matched-text="[[[#base-proof-serialization-selective-disclosure]]]" class="sec-ref"><bdi class="secno">3.7.4 </bdi>Base Proof Serialization Selective Disclosure</a> is
-integrated into the final output of <a href="#SD-Base" data-matched-text="[[[#SD-Base]]]" class="sec-ref"><bdi class="secno">3.7.1 </bdi>Create Selective Disclosure Base Proof</a> for each of the example 
-cryptosuites are shown below. The signature values in hex are shown in 
+integrated into the final output of <a href="#SD-Base" data-matched-text="[[[#SD-Base]]]" class="sec-ref"><bdi class="secno">3.7.1 </bdi>Create Selective Disclosure Base Proof</a> for each of the example
+cryptosuites are shown below. The signature values in hex are shown in
 <a href="#example-pqc-signatures" data-matched-text="[[[#example-pqc-signatures]]]" class="box-ref">Example<bdi> 40</bdi></a>.
           </p>
           <div class="example" id="example-mldsa44-sd-2024-base">
@@ -4314,7 +4314,7 @@ cryptosuites are shown below. The signature values in hex are shown in
     "proofValue": "u2V0QhVkJdPzfddikiWYcJp2E4Mf9yVI5afaVi29O4fJ7iMvgWERWnQxchHymZhH55kDlH6ViMco7NCwusfg0NrRdhvEk6x-VM7bBl6Vc0eNY_3dFcXVYIl5mltdfkgQX9pHwJgGFF6gfnPSv6A3b0IgA1W5IBFHGRfWQQI860FUuickcypHDCiaXIIQUlaImVBYP-vCffEMjXmpZZHB_5-aSIS_Q54Ysq8tKX_blmiHUzMYk1CFHFRNZdnW3JLFQ8fk5gayucogE8cKNhjMe2_X9xHy90Mso0z5xmgc9iv0M0WUbVc9PGuY6g4rbxtRPf4BLkv56Ve_qrdw3jjss3tZmTmyeaSa6g7WU-0kCbXEtunczc05pJ6pmCD0Z-ElA_ZJkyUhmQLAoJbO5Rr2o4B1A8CrnO55v7ISfEbDL6U0_KWhM5_7W0AFafvntZhK_DLNSX2-OVP-Ndutkl5B8hXFOOdW3VM6YGo9D-wk2uUVvgKuPVGfzEX8xdKepYjlV1PoZO-kf-d3Fd6jRyJnizFwjnnwyu1vE0jDbL1Ek-es4HVKpjVJCco2dpm7RWQVIU8l80qwl9ItCa2auHBdhTP4xLtMrS2BzM38pFxGJskw3weydEQvBJ8ahVBP3oXAzQJ0hnoNCKNxWsVH7EfWSIVoo-mPirsWF_XZyKR3HTpVWJ-XATfBuL8W3XGE1PVwv-jMcMfpkHDjaOauGa60dYVYl_2LXOH872Lz5pSiNHp7hB1cU2xP1JxUCwjucG4OsqMfnh4LuvEP7oI8LPRqPNobcN17UbR78e536NxvlTWAYYw6pS5QOkLptIWwtY1Sy7W4s_qOtJesC43Ybo7Trc-Lh4M5GalNjyaET4FUEtn7S6pQ2zRez7Q3FYradRjr-tv85SEhCz3F7artHCsW5jK1gIyDA4MPlOlF8dh63zgc2_naHM2edoGqP8yximRv-4_8eyHcgbo0R3LSnvUVpSnPBzRz4DVqp-BPgSOM4ZnDThcHjxcN1-onFMqCjCPcAtv4z98ks7BZUmknWTN6rUkgYgYC6VBVEjvTpO2HrI0Izu-kSSOMQTHuzDmm9StVxDiPQ9fZyuhV2CUyjwlypYDysRlLLRX-mu5r3FDckQXCqHH3hM2CEOjNN-SNL7dnfT0jYnO5PjxBlbvht32grrQ4jpxZqHHho2dnhVJ3CpVD7498VeALRzhn0bzhaVmA1JlJiwtRemZWHMVWIRiehrFkuwu-UaBC-5E1SynVCwtqGrH1ftXJLfK_XB3Yf9awYXxzwBYQADDtKZxisSDnl0jJlh6gCXz7yJu95O_FaRZ06O5m-leRUVyLte487OCqjjCIinJ3OcgbFOu3UAs-VzId1rdJekWbohxuqs1dYJoXxJpgfoMS1j5l3s9JZ1Lb2Fsa6PvqXjhJg2NRyGNky9Kt18V3XIbUyKvNmM7B-2X1cwmmw10_yS9s4_3eyEZgl-bBE4nLWZF7ToBRLeW0TYVwTedsj1cNw6d33D6Qkso2iNu0_Q4q_IjuxZcGPjZPUiHy84fqSkyD7R-avvLn5ridSKpgtk98vBRW-xQVcGN0fMDOuctgvLE1SXpYjuw9VZJQeouhzw4JnR0s6WifO9-N38GqjGOgPLVY-skoyLKQ96rLlAOG4FOoU_dhneZmNJvWqlE471m01D1fv2QQmGgGdRwFk1iSWEcH-OS26ACr58g8jdXnOvcl6YZcWRp46Ih9sUaUksbhpP6SLzi1iaGn1jCQiin40zj9rUP2C0XmG0tdag-4zY3auckGK6RlSS8KBvbt7OXfYeEMgb9nwftpTNPqRdz0Gf72zs5bxbC0QDzixHCJIWnbqO0lx1podfd8VCkyqhScaLNVYyY5DxjdP5lVtlH5Jyl81WbqxQhfpwXKLJ1K933mF3hr2LHdvBplQ7LSXzXntRZBs8cp44qTemHnhGl5xM0YKowHiGYX6LKMFnwLeR0VKBzP_H8YZqobDUd7SPKU6U078LVr007JSZvKbziVmjLA4nc2U9nj2E4pA6Q62mbHR0INHOQDrCQ2wTrhjH94IW9KegoFm-c5dRVmZrqOcDuSnOMfo-QrcySbwoGrBZ7oX9mja8wXf20g85ZE1Tllyz-otoa6taYV7Y7SbR1SY9xTDk7DHGN5D7CoP5qFvGUG8HLffi7panPh-aB_OngFpUN8Eogh-egSUfIyWWIxgJ26iW7H9hpoSJWQ0zVJNzoK0dehulih3Co0bga_98vAAhJitp1Ny-e_kjhOfytNQpXDQG1Piz5rtWvoGB5ka11l_i_rvBdYq5LX7w4KYnrlaO6vvQYL4wlO58WwIhG5qAtZjB7w_MCTiTEeSci43HapmNp73BJWmk-IJrClarDXeXATkn93owlv6FASNlXZ7vKtggUh_yFLHDtL7lKjh9yWcDc0EbZHk2oCqGC2_VdqiVbFFxQ-Ga7NxtZBTxEkUm2k8GwMi88jOVe0_RQmJU3LSfLvC1wqDXXBSOhuo1WSGMo1QRhOZPxqPGB_KjzGfEOlvxRdiMoGv5tR4wD_7tGow9UU7E6D-NkION6vKoIhJeSJieJRtFH9AEKdxn5NhOnL_uZEsoIqRwls3H7AVcdwKzcvVVLD8F8eXOwcWuExO0EjjRSw4jd3OfvpeTw-vZRcqCvCJnn1gpus3hX-Q-Ra9Tte9mOibu_lxpYxg3M1gkQfTpA9b8-tx4SJbBuYiKv-3rXr7Mo9sGvGRTRYD9bNVRhfqovIwloHZ7HJaqcv_AiwSf5331LBVeHajqmUNBImQds1sxmyurf1LMOJxMq6ECwH0ZMWPQr5Mu1eYoDK4EIdVf_5ZLQqiomyQrwUqs-Y1mgsofcAzdXlYyl4H7ESG0xPvP3pRZP-OsNNk9KhYVMJv6y2m1NiSC0goML7h2iAY4em2deAxM0RaXh1aiXDFsZXG1xepXNA-EmSDyPJad0Si2f4p2BE4Ic6YTg7k0KvEzREHP8s7GQexFd4niJWEaeBu7BzKM-GkQNVzE8WAGeOqNIGyudmA9Bd7EdKTj5xErTC85hmMMetFXpRTlLi3xO2-yoz8uKz9rxc4d9a14uSzWvRmXjK4GXSpkcln2qHlWY-lCb7uetpMcp_LFhc4TFZcYGuBjJyeqb7Ax8nP7vP-CQw1OT1ff52zusPe5u8JLUlPYHF5fIiOmK6ws7j5_wQHDBIYICwyUVpcXWFiiZy6wMfK0OPu7_kAAAAVIzRNWCAAESIzRFVmd4iZqrvM3e7_ABEiM0RVZneImaq7zN3u_5RQjxKxhAs0_d0vr-6wrp9SI1AtMYVKYzMqWyuY9YX9KxgeUFnIGtAE-byMTzGIhjZg7VRQFRwgiCddYeTTBg6sUbnf2lB5ee4eyRRNwcAjUTWjg5I3UG56MzL6_OkVQeOPTZgZdZZQprUpLEcgofpjkI_Je4ndilDUN6KeRdf455EeChILkWdkUE1PO1mXEtc6Hk0sjMJXa9hQLnAXWRB8cLjY_cj0jvAbpVBZ2bE24SOc1uTzqGkXcQgLUOgd3aB99lsBi4U70uEuM3RQrrsU53g3II7BmD3cPzeXhFBnqbWKJ6m_DcLgrZTW3YxmUEs2preXAsGmw78iJELvXEBQATrM3kZtwA_fpnavshVsflAmERslE_lp5hiLvtZBsGBRULoX31V4SpZT13t_mnpYzg5QLKsQdijFTbLdKBmEMjWU2FAcWonm9JKeTs6y3zznyPNDlFgg3SnGH3Wv0T3goYDnZi88ITb6TLfH8mZtAC2s1X_9LDxYID8K6becNTzyo-iuqob_yKQKcusn-6dtCbTsuljRqK-wWCASOt1ZSHcYqgow9u4QUldG8kTQCZRHKZE33Xuv6UsLJVgg8PzeQ69XmhN_6RZAKOSMOkbcOrZgGHfXEOddQmKy1aZYIJkaHNKY_nr1w1Q9cyu6qIlbXr-lqZnTB-qsVWO-jtukWCDMab4SN6xd0kbAzoT7mOpMgZT6ba_nI1t9nOJod7qGhlggE0QUG7yHWz9B7LiGl53fgmBF4Is81tYKlEpXsgTtJUNYIGOXHOe6VXxsSQ_GZvRkwfuFAufrJaupzr-oJVCozd0-WCDjclFWysMLQ6tA4_mrnv_8kD9Pg_PVV0nS5GiGFdp1YFggUByho4mwUBoIrFSdF5MANngL3SfLVNdfEY-2pM6dR9xYIGwcOW2D7L7IZWhVXchUzb9mHN75wwj_YF2y4qiq9_y5WCAyAmL83NXSV5TOJylGi7x4BVsBfXws6PCjffa2KP7uplggbt5kWaFaVrqlqRn6YYVaNsBKohhW5TRpXvq-464AiMVYICt5ipF4FmMLcfZCDWMSxvXcdLZ33h2QT265xg-fpKejWCA_AGXiJVgzSvKl3JU50si_jth1vV4I8xhzS8YWnpxEr1ggFMmtqFqJmKYkSdCogenUb6cdr79VjVPlkn0UQBd_TfRYII13X4XDbO04apkdhdZCeRLY0SQwBV4AU1bM9rev3Fe5WCAuB-l8u9JE1VAZrT73fmdIOC4liX0kx6u-MkNj4F-LLVggbW_R_TEAmyARrb681RAhshNntv1nP6yiaFwNmFhOawdYIK6UInNwguOqESQtBb23-VktbTc_7FMo1kQCMiRsxDwSgWcvaXNzdWVy"
   }
 }</pre>
-      </div>        
+      </div>
           <div class="example" id="example-slhdsa128-sd-2024-base">
         <div class="marker">
     <a class="self-link" href="#example-slhdsa128-sd-2024-base">Example<bdi> 36</bdi></a><span class="example-title">: slhdsa128-sd-2024 Base </span>
@@ -4416,8 +4416,8 @@ cryptosuites are shown below. The signature values in hex are shown in
 }</pre>
       </div>
           <div class="note" role="note" id="issue-container-generatedID-13"><div class="note-title marker" id="h-note-2"><span>Note</span></div><p class="">
-Signature values are generally based on non-deterministic algorithms so you can 
-<em>verify</em> a signature value against its corresponding input 
+Signature values are generally based on non-deterministic algorithms so you can
+<em>verify</em> a signature value against its corresponding input
 <em>message</em> but you cannot compare two signature values to validate these
 test vectors, i.e., your generated signature value can be valid, while differing
 from what is presented here.
@@ -4430,11 +4430,11 @@ from what is presented here.
 
           <p>
 The first step in formulating a derived proof <a href="#SD-Derived" data-matched-text="[[[#SD-Derived]]]" class="sec-ref"><bdi class="secno">3.7.5 </bdi>Add Derived Proof Selective Disclosure</a> is to
-<a href="#Derived-Create-Disclosure-Data" data-matched-text="[[[#Derived-Create-Disclosure-Data]]]" class="sec-ref"><bdi class="secno">3.7.6 </bdi>Derived Proof: Create Disclosure Data</a> based on the <em>document</em>, 
+<a href="#Derived-Create-Disclosure-Data" data-matched-text="[[[#Derived-Create-Disclosure-Data]]]" class="sec-ref"><bdi class="secno">3.7.6 </bdi>Derived Proof: Create Disclosure Data</a> based on the <em>document</em>,
 <em>base proof</em>, and  <em>selective pointers</em>. This process creates an
 object containing the following items:
-<em>signature</em>, <em>salts</em>, <em>saltedHashes</em>, <em>labelMap</em>, 
-<em>mandatoryIndexes</em>, <em>selectiveIndexes</em> and 
+<em>signature</em>, <em>salts</em>, <em>saltedHashes</em>, <em>labelMap</em>,
+<em>mandatoryIndexes</em>, <em>selectiveIndexes</em> and
 <em>revealDocument</em>. Except for the <em>signature</em> field these values
 are common across the cryptosuite test vectors and are shown in the two examples
 below.
@@ -4525,13 +4525,13 @@ below.
     "birthCountry": "Bahamas"
   }
 }</pre>
-      </div>          
+      </div>
         </section>
         <section id="sd-derive-signature-specific-outputs"><div class="header-wrapper"><h4 id="a-6-5-sd-derive-signature-specific-outputs"><bdi class="secno">A.6.5 </bdi>SD Derive Signature Specific Outputs</h4><a class="self-link" href="#sd-derive-signature-specific-outputs" aria-label="Permalink for Appendix A.6.5"></a></div>
           
-          
+
           <p>
-The <em>signature</em> portion of the <a href="#Derived-Create-Disclosure-Data" data-matched-text="[[[#Derived-Create-Disclosure-Data]]]" class="sec-ref"><bdi class="secno">3.7.6 </bdi>Derived Proof: Create Disclosure Data</a> 
+The <em>signature</em> portion of the <a href="#Derived-Create-Disclosure-Data" data-matched-text="[[[#Derived-Create-Disclosure-Data]]]" class="sec-ref"><bdi class="secno">3.7.6 </bdi>Derived Proof: Create Disclosure Data</a>
 which is recovered from the base proof is shown below, where we have aggregated
 the different <em>signature</em> values.
           </p>
@@ -4552,7 +4552,7 @@ the different <em>signature</em> values.
       </div>
 
           <p>
-The final ouput, i,e, the signed derived document, from  <a href="#SD-Derived" data-matched-text="[[[#SD-Derived]]]" class="sec-ref"><bdi class="secno">3.7.5 </bdi>Add Derived Proof Selective Disclosure</a> for 
+The final ouput, i,e, the signed derived document, from  <a href="#SD-Derived" data-matched-text="[[[#SD-Derived]]]" class="sec-ref"><bdi class="secno">3.7.5 </bdi>Add Derived Proof Selective Disclosure</a> for
 each of our example cryptosuites is shown below.
           </p>
           <div class="example" id="example-mldsa44-sd-2024-derived">
@@ -4589,7 +4589,7 @@ each of our example cryptosuites is shown below.
     "proofValue": "u2V0RhlkJdPzfddikiWYcJp2E4Mf9yVI5afaVi29O4fJ7iMvgWERWnQxchHymZhH55kDlH6ViMco7NCwusfg0NrRdhvEk6x-VM7bBl6Vc0eNY_3dFcXVYIl5mltdfkgQX9pHwJgGFF6gfnPSv6A3b0IgA1W5IBFHGRfWQQI860FUuickcypHDCiaXIIQUlaImVBYP-vCffEMjXmpZZHB_5-aSIS_Q54Ysq8tKX_blmiHUzMYk1CFHFRNZdnW3JLFQ8fk5gayucogE8cKNhjMe2_X9xHy90Mso0z5xmgc9iv0M0WUbVc9PGuY6g4rbxtRPf4BLkv56Ve_qrdw3jjss3tZmTmyeaSa6g7WU-0kCbXEtunczc05pJ6pmCD0Z-ElA_ZJkyUhmQLAoJbO5Rr2o4B1A8CrnO55v7ISfEbDL6U0_KWhM5_7W0AFafvntZhK_DLNSX2-OVP-Ndutkl5B8hXFOOdW3VM6YGo9D-wk2uUVvgKuPVGfzEX8xdKepYjlV1PoZO-kf-d3Fd6jRyJnizFwjnnwyu1vE0jDbL1Ek-es4HVKpjVJCco2dpm7RWQVIU8l80qwl9ItCa2auHBdhTP4xLtMrS2BzM38pFxGJskw3weydEQvBJ8ahVBP3oXAzQJ0hnoNCKNxWsVH7EfWSIVoo-mPirsWF_XZyKR3HTpVWJ-XATfBuL8W3XGE1PVwv-jMcMfpkHDjaOauGa60dYVYl_2LXOH872Lz5pSiNHp7hB1cU2xP1JxUCwjucG4OsqMfnh4LuvEP7oI8LPRqPNobcN17UbR78e536NxvlTWAYYw6pS5QOkLptIWwtY1Sy7W4s_qOtJesC43Ybo7Trc-Lh4M5GalNjyaET4FUEtn7S6pQ2zRez7Q3FYradRjr-tv85SEhCz3F7artHCsW5jK1gIyDA4MPlOlF8dh63zgc2_naHM2edoGqP8yximRv-4_8eyHcgbo0R3LSnvUVpSnPBzRz4DVqp-BPgSOM4ZnDThcHjxcN1-onFMqCjCPcAtv4z98ks7BZUmknWTN6rUkgYgYC6VBVEjvTpO2HrI0Izu-kSSOMQTHuzDmm9StVxDiPQ9fZyuhV2CUyjwlypYDysRlLLRX-mu5r3FDckQXCqHH3hM2CEOjNN-SNL7dnfT0jYnO5PjxBlbvht32grrQ4jpxZqHHho2dnhVJ3CpVD7498VeALRzhn0bzhaVmA1JlJiwtRemZWHMVWIRiehrFkuwu-UaBC-5E1SynVCwtqGrH1ftXJLfK_XB3Yf9awYXxzwBYQADDtKZxisSDnl0jJlh6gCXz7yJu95O_FaRZ06O5m-leRUVyLte487OCqjjCIinJ3OcgbFOu3UAs-VzId1rdJekWbohxuqs1dYJoXxJpgfoMS1j5l3s9JZ1Lb2Fsa6PvqXjhJg2NRyGNky9Kt18V3XIbUyKvNmM7B-2X1cwmmw10_yS9s4_3eyEZgl-bBE4nLWZF7ToBRLeW0TYVwTedsj1cNw6d33D6Qkso2iNu0_Q4q_IjuxZcGPjZPUiHy84fqSkyD7R-avvLn5ridSKpgtk98vBRW-xQVcGN0fMDOuctgvLE1SXpYjuw9VZJQeouhzw4JnR0s6WifO9-N38GqjGOgPLVY-skoyLKQ96rLlAOG4FOoU_dhneZmNJvWqlE471m01D1fv2QQmGgGdRwFk1iSWEcH-OS26ACr58g8jdXnOvcl6YZcWRp46Ih9sUaUksbhpP6SLzi1iaGn1jCQiin40zj9rUP2C0XmG0tdag-4zY3auckGK6RlSS8KBvbt7OXfYeEMgb9nwftpTNPqRdz0Gf72zs5bxbC0QDzixHCJIWnbqO0lx1podfd8VCkyqhScaLNVYyY5DxjdP5lVtlH5Jyl81WbqxQhfpwXKLJ1K933mF3hr2LHdvBplQ7LSXzXntRZBs8cp44qTemHnhGl5xM0YKowHiGYX6LKMFnwLeR0VKBzP_H8YZqobDUd7SPKU6U078LVr007JSZvKbziVmjLA4nc2U9nj2E4pA6Q62mbHR0INHOQDrCQ2wTrhjH94IW9KegoFm-c5dRVmZrqOcDuSnOMfo-QrcySbwoGrBZ7oX9mja8wXf20g85ZE1Tllyz-otoa6taYV7Y7SbR1SY9xTDk7DHGN5D7CoP5qFvGUG8HLffi7panPh-aB_OngFpUN8Eogh-egSUfIyWWIxgJ26iW7H9hpoSJWQ0zVJNzoK0dehulih3Co0bga_98vAAhJitp1Ny-e_kjhOfytNQpXDQG1Piz5rtWvoGB5ka11l_i_rvBdYq5LX7w4KYnrlaO6vvQYL4wlO58WwIhG5qAtZjB7w_MCTiTEeSci43HapmNp73BJWmk-IJrClarDXeXATkn93owlv6FASNlXZ7vKtggUh_yFLHDtL7lKjh9yWcDc0EbZHk2oCqGC2_VdqiVbFFxQ-Ga7NxtZBTxEkUm2k8GwMi88jOVe0_RQmJU3LSfLvC1wqDXXBSOhuo1WSGMo1QRhOZPxqPGB_KjzGfEOlvxRdiMoGv5tR4wD_7tGow9UU7E6D-NkION6vKoIhJeSJieJRtFH9AEKdxn5NhOnL_uZEsoIqRwls3H7AVcdwKzcvVVLD8F8eXOwcWuExO0EjjRSw4jd3OfvpeTw-vZRcqCvCJnn1gpus3hX-Q-Ra9Tte9mOibu_lxpYxg3M1gkQfTpA9b8-tx4SJbBuYiKv-3rXr7Mo9sGvGRTRYD9bNVRhfqovIwloHZ7HJaqcv_AiwSf5331LBVeHajqmUNBImQds1sxmyurf1LMOJxMq6ECwH0ZMWPQr5Mu1eYoDK4EIdVf_5ZLQqiomyQrwUqs-Y1mgsofcAzdXlYyl4H7ESG0xPvP3pRZP-OsNNk9KhYVMJv6y2m1NiSC0goML7h2iAY4em2deAxM0RaXh1aiXDFsZXG1xepXNA-EmSDyPJad0Si2f4p2BE4Ic6YTg7k0KvEzREHP8s7GQexFd4niJWEaeBu7BzKM-GkQNVzE8WAGeOqNIGyudmA9Bd7EdKTj5xErTC85hmMMetFXpRTlLi3xO2-yoz8uKz9rxc4d9a14uSzWvRmXjK4GXSpkcln2qHlWY-lCb7uetpMcp_LFhc4TFZcYGuBjJyeqb7Ax8nP7vP-CQw1OT1ff52zusPe5u8JLUlPYHF5fIiOmK6ws7j5_wQHDBIYICwyUVpcXWFiiZy6wMfK0OPu7_kAAAAVIzRNlFCPErGECzT93S-v7rCun1IjUC0xhUpjMypbK5j1hf0rGB5QWcga0AT5vIxPMYiGNmDtVFAVHCCIJ11h5NMGDqxRud_aUHl57h7JFE3BwCNRNaODkjdQbnozMvr86RVB449NmBl1llCmtSksRyCh-mOQj8l7id2KUNQ3op5F1_jnkR4KEguRZ2RQTU87WZcS1zoeTSyMwldr2FAucBdZEHxwuNj9yPSO8BulUFnZsTbhI5zW5POoaRdxCAtQ6B3doH32WwGLhTvS4S4zdFCuuxTneDcgjsGYPdw_N5eEUGeptYonqb8NwuCtlNbdjGZQSzamt5cCwabDvyIkQu9cQFABOszeRm3AD9-mdq-yFWx-UCYRGyUT-WnmGIu-1kGwYFFQuhffVXhKllPXe3-aeljODlAsqxB2KMVNst0oGYQyNZTYUBxaieb0kp5OzrLfPOfI80OUWCDdKcYfda_RPeChgOdmLzwhNvpMt8fyZm0ALazVf_0sPFggPwrpt5w1PPKj6K6qhv_IpApy6yf7p20JtOy6WNGor7BYIBI63VlIdxiqCjD27hBSV0byRNAJlEcpkTfde6_pSwslWCDw_N5Dr1eaE3_pFkAo5Iw6Rtw6tmAYd9cQ511CYrLVplggmRoc0pj-evXDVD1zK7qoiVtev6WpmdMH6qxVY76O26RYIMxpvhI3rF3SRsDOhPuY6kyBlPptr-cjW32c4mh3uoaGWCATRBQbvIdbP0HsuIaXnd-CYEXgizzW1gqUSleyBO0lQ1ggY5cc57pVfGxJD8Zm9GTB-4UC5-slq6nOv6glUKjN3T5YIONyUVbKwwtDq0Dj-aue__yQP0-D89VXSdLkaIYV2nVgWCBQHKGjibBQGgisVJ0XkwA2eAvdJ8tU118Rj7akzp1H3FggbBw5bYPsvshlaFVdyFTNv2Yc3vnDCP9gXbLiqKr3_LlYIDICYvzc1dJXlM4nKUaLvHgFWwF9fCzo8KN99rYo_u6mWCBu3mRZoVpWuqWpGfphhVo2wEqiGFblNGle-r7jrgCIxVggK3mKkXgWYwtx9kINYxLG9dx0tnfeHZBPbrnGD5-kp6NYID8AZeIlWDNK8qXclTnSyL-O2HW9XgjzGHNLxhaenESvWCAUya2oWomYpiRJ0KiB6dRvpx2vv1WNU-WSfRRAF39N9FggjXdfhcNs7ThqmR2F1kJ5EtjRJDAFXgBTVsz2t6_cV7lYIC4H6Xy70kTVUBmtPvd-Z0g4LiWJfSTHq74yQ2PgX4stWCBtb9H9MQCbIBGtvrzVECGyE2e2_Wc_rKJoXA2YWE5rB1ggrpQic3CC46oRJC0Fvbf5WS1tNz_sUyjWRAIyJGzEPBKiAFgg3Lv2QpFgo-YAegc1cQQKWJFW2sEjQF6FfuZ0VEoMKHgBWCDhgg5mfUwcRLVngiPaFZkbdHh0RgGqDl8dPIMS9iELf4QABAUHhgABCA0ODw"
   }
 }</pre>
-      </div>        
+      </div>
           <div class="example" id="example-slhdsa128-sd-2024-derived">
         <div class="marker">
     <a class="self-link" href="#example-slhdsa128-sd-2024-derived">Example<bdi> 42</bdi></a><span class="example-title">: slhdsa128-sd-2024 Derived </span>
